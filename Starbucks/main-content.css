@@ -1,0 +1,67 @@
+/* --- Cấu trúc Full-width Zig-zag --- */
+.main-full-width {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.banner-row {
+    display: flex;
+    width: 100%;
+    min-height: 550px; /* Chiều cao cố định để các khung đều nhau */
+    align-items: stretch; /* Đảm bảo ảnh và chữ cao bằng nhau */
+}
+
+/* TỰ ĐỘNG SO LE: Hàng số 2, 4, 6 sẽ đảo ngược ảnh sang phải */
+.banner-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* --- CẮT ẢNH ĐỀU NHAU --- */
+.banner-image {
+    flex: 1; /* Chiếm chính xác 50% */
+    overflow: hidden;
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Quan trọng: Cắt ảnh đều mà không làm méo hình */
+    display: block;
+}
+
+/* --- NỘI DUNG VĂN BẢN --- */
+.banner-content {
+    flex: 1; /* Chiếm chính xác 50% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 8%;
+}
+
+.text-box {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Màu sắc Theme Starbucks */
+.house-green-bg { background-color: #1e3932; color: #ffffff; }
+.peach-bg { background-color: #f2d2bd; }
+.accent-green-bg { background-color: #d4e9e2; }
+
+.dark-text { color: #1e3932; }
+
+/* Responsive: Chuyển về 1 cột trên Mobile */
+@media (max-width: 992px) {
+    .banner-row, 
+    .banner-row:nth-child(even) {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .banner-image {
+        height: 350px; /* Chiều cao ảnh khi ở chế độ mobile */
+    }
+    .banner-content {
+        padding: 40px 20px;
+    }
+}

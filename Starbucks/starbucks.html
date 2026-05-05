@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản lý - NEU Project</title>
+    <link rel="stylesheet" href="starbucks.css">
+    <link rel="stylesheet" href="main-content.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+
+
+    
+</script>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Logo">
+                </a>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Tổng quan <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#overview">Tổ chức</a></li>
+                            <li><a href="#target-motivation">Đối tượng tạo động lực</a></li>
+                            <li><a href="#motivation">Các động lực cho nhân viên</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Hệ thống công cụ <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Công cụ kinh tế</a></li>
+                            <li><a href="#">Công cụ tâm lý - xã hội</a></li>
+                            <li><a href="#">Công cụ nội dung công việc</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Phân tích số liệu <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Phân tích tác động</a></li>
+                            <li><a href="#">Mô hình cây vấn đề</a></li>
+                            <li><a href="#">Mô hình giải pháp</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Sáng kiến hoàn thiện</a></li>
+
+                    <li><a href="#">Giả lập vận hành</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<main class="main-full-width">
+    <section class="banner-row" id="overview">
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200" alt="Starbucks Store">
+        </div>
+        <div class="banner-content house-green-bg">
+            <div class="text-box">
+                <span class="sub-title">Triết lý kinh doanh</span>
+                <h1>Giới thiệu về Starbucks</h1>
+                <p>Starbucks định vị mình là <strong>"Nơi thứ ba"</strong> (The Third Place) — không gian kết nối giữa nhà và nơi làm việc[cite: 13, 15].</p>
+                <p>Sứ mệnh của chúng tôi là nuôi dưỡng tinh thần con người thông qua <strong>"Sự kết nối nhân văn"</strong>[cite: 13, 15].</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner-row" id="target-motivation">
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200" alt="Starbucks Barista">
+        </div>
+        <div class="banner-content peach-bg">
+            <div class="text-box dark-text">
+                <h2>Đối tượng tạo động lực</h2>
+                <p>Nhóm tập trung vào đội ngũ <strong>Barista</strong> và <strong>Shift Supervisors</strong> trực tiếp tạo ra trải nghiệm khách hàng.</p>
+                <div class="reason-highlight">
+                    <strong>Lý do lựa chọn:</strong> Đội ngũ này chủ yếu là <strong>Gen Z</strong> — những người ưu tiên hòa hợp cuộc sống và trách nhiệm xã hội.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner-row" id="motivation">
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200" alt="Motivation">
+        </div>
+        <div class="banner-content accent-green-bg">
+            <div class="text-box dark-text">
+                <h2>Hệ thống tạo động lực</h2>
+                <p>Tập trung vào các công cụ kinh tế như <strong>Bean Stock</strong> (tặng cổ phiếu) và chi trả 100% học phí đại học[cite: 13, 17, 18].</p>
+                <p>Bên cạnh đó là văn hóa <strong>"Đối tác"</strong> và trao quyền tương tác cá nhân không kịch bản[cite: 13, 19, 20].</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <section class="brand-team-section">
+
+    <div class="brand-header-banner">
+        <h2>Các Thành Viên Nhóm</h2>
+    </div>
+    
+    <div class="brand-grid-container">
+        <!-- Thành viên 1 -->
+        <div class="team-member-item">
+            <div class="member-frame">
+                <img src="path/to/linh.jpg" alt="abc">
+            </div>
+            <p class="member-label">abc</p>
+        </div>
+
+        <!-- Thành viên 2 -->
+        <div class="team-member-item">
+            <div class="member-frame">
+                <img src="path/to/ngoc.jpg" alt="abc">
+            </div>
+            <p class="member-label">abc</p>
+        </div>
+
+        <!-- Thành viên 3 -->
+        <div class="team-member-item">
+            <div class="member-frame">
+                <img src="path/to/thy.jpg" alt="abc">
+            </div>
+            <p class="member-label">abc</p>
+        </div>
+
+        <!-- Thành viên 4 (Dạng khung trống - Placeholder) -->
+        <div class="team-member-item">
+            <div class="member-frame placeholder">
+                <!-- Để trống hoặc icon mặc định -->
+            </div>
+            <p class="member-label">abc</p>
+        </div>
+
+        <!-- Thành viên 5 (Dạng khung trống - Placeholder) -->
+        <div class="team-member-item">
+            <div class="member-frame placeholder">
+                <!-- Để trống hoặc icon mặc định -->
+            </div>
+            <p class="member-label">abc</p>
+        </div>
+    </div>
+
+    </section>
+
+    <footer class="footer-professional">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=500" alt="Coffee" class="decor-img left-coffee">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=500" alt="Coffee" class="decor-img right-coffee">
+
+        <div class="footer-grid">
+            <div class="footer-info">
+                <div class="social-header">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Contact information</strong></p>
+                    <p>(+84) 24 3628 0280</p>
+                    <p>truyenthong@neu.edu.vn</p>
+
+                    <h3>Address</h3>
+                    <p>207 Giải Phóng, Đồng Tâm, Hai Bà Trưng, Hà Nội</p>
+
+                    <h3>Other</h3>
+                    <ul class="other-links">
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Deliver Policy</a></li>
+                        <li><a href="#">Customer Feedbacks</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.7335946398553!2d105.84074367592404!3d21.003303488651817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac76ccab6dd7%3A0x2215c0d30364d516!2zRMOieSBuaMOgIEEyLCDEkOG6oWkgaOG7YyBLaW5oIHThur8gUXXhu5FjIGTDom4!5e0!3m2!1svi!2s!4v1714925000000!5m2!1svi!2s" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius: 12px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 National Economics University. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

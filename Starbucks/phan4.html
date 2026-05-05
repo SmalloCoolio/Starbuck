@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản lý Dự án</title>
+    <link rel="stylesheet" href="starbucks.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="starbucks.html">Home</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                    
+                    <!-- Dropdown: Tổng quan -->
+                    <li class="dropdown">
+                        <a href="#">Tổng quan <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="phan1.html">Tổ chức</a></li>
+                            <li><a href="phan1.html">Đối tượng tạo động lực</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown: Hệ thống công cụ -->
+                    <li class="dropdown">
+                        <a href="#">Hệ thống công cụ <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="phan2.html">Công cụ kinh tế</a></li>
+                            <li><a href="phan2.html">Công cụ tâm lý - xã hội</a></li>
+                            <li><a href="phan2.html">Công cụ nội dung công việc</a></li>
+                        </ul>
+                    </li>
+
+
+                    <!-- Dropdown: Phân tích số liệu -->
+                    <li class="dropdown">
+                        <a href="#">Phân tích số liệu <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="phan3.html">Phân tích tác động</a></li>
+                            <li><a href="phan3.html">Mô hình cây vấn đề</a></li>
+                            <li><a href="phan3.html">Mô hình giải pháp</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="phan4.html">Sáng kiến hoàn thiện</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main style="padding: 100px 40px; text-align: center;">
+        <h1>Chào mừng bạn đến với Hệ thống Quản lý</h1>
+        <p>Di chuột vào các mục trên Header để xem menu con.</p>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer-professional">
+        <!-- Hình ảnh cà phê trang trí hai bên (Style giống ảnh mẫu nhưng là cafe) -->
+        <img src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-107763.jpg" alt="Coffee" class="decor-img left-coffee">
+        <img src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-107916.jpg" alt="Coffee" class="decor-img right-coffee">
+
+        <div class="footer-grid">
+            <!-- Cột 1: Thông tin liên hệ -->
+            <div class="footer-info">
+                <div class="social-header">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Contact information</strong></p>
+                    <p>(+84) 24 3628 0280</p>
+                    <p>truyenthong@neu.edu.vn</p>
+
+                    <h3>Address</h3>
+                    <p>207 Giải Phóng, Đồng Tâm, Hai Bà Trưng, Hà Nội</p>
+
+                    <h3>Other</h3>
+                    <ul class="other-links">
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Deliver Policy</a></li>
+                        <li><a href="#">Customer Feedbacks</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cột 2: Bản đồ NEU -->
+            <div class="footer-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.7297002888636!2d105.84055277503073!3d21.0034694806395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac76ccab6dd7%3A0x5505c59274ddad1!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaW5oIHThur8gUXXhu5FjIGTDom4!5e0!3m2!1svi!2s!4v1715000000000!5m2!1svi!2s" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius: 12px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 National Economics University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
