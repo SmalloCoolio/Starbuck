@@ -65,3 +65,129 @@
         padding: 40px 20px;
     }
 }
+/* --- Tinh chỉnh ô nổi để chữ ra giữa --- */
+.floating-summary-card {
+    background-color: var(--starbucks-white);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0, 98, 65, 0.1);
+    border: 1px solid var(--accent-green);
+    position: relative;
+    text-align: center; /* Căn giữa toàn bộ văn bản mặc định */
+    transition: transform 0.3s ease;
+}
+
+/* Căn giữa tiêu đề của Card */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Đưa cả Icon và Text ra giữa */
+    gap: 12px;
+    margin-bottom: 25px;
+    color: var(--starbucks-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+/* Căn giữa nội dung các mục thông tin */
+.card-body {
+    display: grid;
+    grid-template-columns: 1fr; /* Chuyển về 1 cột để căn giữa trông thoáng hơn */
+    gap: 20px;
+    max-width: 800px; /* Giới hạn độ rộng để nội dung không bị loãng */
+    margin: 0 auto;
+}
+
+.info-item {
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Xếp tiêu đề trên, nội dung dưới */
+    align-items: center;    /* Căn giữa theo trục ngang */
+}
+
+.info-item strong {
+    color: var(--house-green);
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.info-item span {
+    color: var(--text-black);
+    max-width: 90% ; /* Để chữ không chạm mép khung */
+}
+
+
+/* --- Style cho bảng Rationale 1.3 --- */
+.rationale-section {
+    padding: 60px 10%;
+    background-color: var(--starbucks-white);
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Hỗ trợ xem trên điện thoại */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 35px;
+    border: 1px solid #eee;
+}
+
+.rationale-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    min-width: 800px; /* Đảm bảo bảng không bị quá hẹp */
+}
+
+/* Header của bảng: Màu xanh đậm House Green */
+.rationale-table th {
+    background-color: var(--house-green);
+    color: var(--starbucks-white);
+    text-align: left;
+    padding: 22px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+
+/* Các ô dữ liệu */
+.rationale-table td {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    line-height: 1.6;
+    vertical-align: top; /* Chữ bắt đầu từ đỉnh ô */
+    color: var(--text-black);
+}
+
+/* Cột đầu tiên: Làm nổi bật tên yếu tố */
+.col-feature {
+    font-weight: 700;
+    color: var(--starbucks-green);
+    width: 20%;
+    background-color: rgba(212, 233, 226, 0.2); /* Nền xanh mint cực nhạt */
+}
+
+/* Hiệu ứng so le hàng (Zebra Stripes) */
+.rationale-table tr:nth-child(even) {
+    background-color: var(--starbucks-background); /* Màu nền trắng ngà #f1f8f5 */
+}
+
+/* Hiệu ứng hover khi di chuột vào hàng */
+.rationale-table tr:hover {
+    background-color: var(--accent-green);
+    transition: background-color 0.3s ease;
+}
+
+/* Tinh chỉnh tiêu đề căn giữa */
+.center-title {
+    text-align: center;
+    color: var(--house-green);
+    margin-bottom: 20px;
+}

@@ -1,0 +1,121 @@
+.subpage-hero {
+    width: 100%;
+    height: 450px;
+    background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Tăng độ mờ nhẹ để chữ đậm nổi bật hơn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-container {
+    text-align: center;
+    color: var(--starbucks-white);
+    /* Áp dụng Bold cho toàn bộ text bên trong */
+    font-weight: 800; 
+    text-transform: uppercase; /* Đảm bảo tất cả đều in hoa */
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 40px; /* Tăng từ 15px lên 40px để tách xa chữ PHẦN 2 */
+    font-weight: 700;
+    color: var(--accent-green); /* Có thể dùng màu xanh mint để làm điểm nhấn */
+}
+
+.hero-title {
+    font-size: 90px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    /* Có thể thêm margin-bottom nếu muốn tách mô tả bên dưới ra thêm */
+    margin-bottom: 25px; 
+}
+
+.hero-description {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 0; /* Đã dùng margin-bottom của title để điều chỉnh */
+}
+
+
+
+
+
+/* --- Hero & Section Styles cho Phần 3 --- */
+
+
+.metrics-section, .problem-tree-section, .initiatives-section {
+    padding: 60px 8%;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-grey);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* --- Visual Problem Tree --- */
+.tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: #f1f8f5;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.tree-node {
+    padding: 25px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.tree-node h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
+
+.leaves { background-color: #d4e9e2; color: #1e3932; border: 2px dashed #1e3932; }
+.trunk { background-color: #1e3932; color: #fff; transform: scale(1.1); }
+.roots { background-color: #f2d2bd; color: #333; border: 2px solid #eab5b5; }
+
+/* --- Tinh chỉnh Card cho Initiative --- */
+.initiatives-section .card-grid {
+    margin-top: 40px;
+}
+
+.initiatives-section .info-card {
+    border-top: 5px solid var(--starbucks-green);
+    transition: all 0.3s ease;
+}
+
+.initiatives-section .info-card:hover {
+    background-color: var(--accent-green);
+}
+
+/* Style cho bảng cuối trang */
+.strategy-summary-section {
+    padding: 80px 8%;
+    background-color: var(--starbucks-background);
+}

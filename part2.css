@@ -1,0 +1,526 @@
+/* Tinh chỉnh bổ sung cho các khối nội dung */
+.highlight-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border-left: 4px solid var(--accent-green);
+}
+
+.highlight-item strong {
+    display: block;
+    color: var(--accent-green);
+    margin-bottom: 5px;
+}
+
+.accent-green-bg .styled-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.accent-green-bg .styled-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.accent-green-bg .styled-list li::before {
+    content: '☕';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* --- Hero Banner Style - Bold & Uppercase --- */
+.subpage-hero {
+    width: 100%;
+    height: 450px;
+    background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Tăng độ mờ nhẹ để chữ đậm nổi bật hơn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-container {
+    text-align: center;
+    color: var(--starbucks-white);
+    /* Áp dụng Bold cho toàn bộ text bên trong */
+    font-weight: 800; 
+    text-transform: uppercase; /* Đảm bảo tất cả đều in hoa */
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 40px; /* Tăng từ 15px lên 40px để tách xa chữ PHẦN 2 */
+    font-weight: 700;
+    color: var(--accent-green); /* Có thể dùng màu xanh mint để làm điểm nhấn */
+}
+
+.hero-title {
+    font-size: 90px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    /* Có thể thêm margin-bottom nếu muốn tách mô tả bên dưới ra thêm */
+    margin-bottom: 25px; 
+}
+
+.hero-description {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 0; /* Đã dùng margin-bottom của title để điều chỉnh */
+}
+
+/* --- Cập nhật lưới học thuyết đối xứng --- */
+.theory-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột đều nhau */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.theory-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Đảm bảo các hộp có chiều cao tối thiểu bằng nhau */
+}
+
+/* Thẻ màu đào (Peach) cho Maslow */
+.peach-card {
+    background-color: #f2d2bd;
+    border: none;
+}
+
+/* Thẻ màu xanh đậm cho Tài chính */
+.financial-card {
+    background-color: var(--house-green);
+    color: #ffffff;
+}
+
+.card-tag {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--starbucks-green);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.white-tag { color: var(--accent-green); }
+
+.theory-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Tinh chỉnh nội dung bên trong các card */
+.theory-inner-split, .maslow-list, .financial-details, .vroom-details {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.label-mini {
+    display: block;
+    font-weight: 700;
+    color: var(--starbucks-green);
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+/* Responsive: Chuyển về 1 cột trên Mobile */
+@media (max-width: 992px) {
+    .theory-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Feature Tags --- */
+
+/* Responsive */
+@media (max-width: 992px) {
+    .theory-container, .card-split, .fin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 3-Column Card Layout (Siply Style) --- */
+.tools-card-section {
+    padding: 80px 5%;
+    background-color: var(--starbucks-white);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia 3 cột đều nhau */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Ảnh vuông hoặc chữ nhật theo mẫu */
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Tạo khung vuông như hình mẫu */
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.info-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Nội dung chữ */
+.card-body h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-black);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    min-height: 56px; /* Giữ các tiêu đề thẳng hàng */
+}
+
+.card-body p {
+    font-size: 15px;
+    color: var(--text-grey);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    display: -webkit-box;
+    --line-clamp: 4; /* Giới hạn 4 dòng text cho đều card */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Nút Read More màu hồng nhạt như mẫu */
+.btn-read-more {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: #f5c9c9; /* Màu hồng phấn theo ảnh mẫu */
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-read-more:hover {
+    background-color: #eab5b5;
+}
+
+/* Responsive: Chuyển về 1 cột trên mobile */
+@media (max-width: 992px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+/* --- Unified Theory Section --- */
+.unified-theory-section {
+    padding: 80px 8%;
+    background-color: var(--starbucks-background); /* Nền xanh ngà đặc trưng */
+    margin: 40px 0;
+}
+
+/* Bố cục Grid cho các thẻ phía trên */
+.theory-top-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Thẻ Herzberg rộng hơn một chút */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.theory-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.green-card {
+    background-color: var(--house-green);
+    color: #ffffff;
+}
+
+.card-tag {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--starbucks-green);
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.white-tag { color: var(--accent-green); }
+
+/* Bảng Skinner nằm bên dưới */
+.skinner-table-block {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.table-title {
+    color: var(--house-green);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.table-desc {
+    color: var(--text-grey);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Tận dụng lại class rationale-table đã có */
+.skinner-table-block .table-wrapper {
+    margin-top: 0;
+    box-shadow: none;
+    border: 1px solid #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .theory-top-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Final Motivation Section Styles --- */
+.final-motivation-section {
+    padding: 100px 5%;
+    background-color: var(--starbucks-white);
+}
+
+/* Banner triết lý Partner */
+.philosophy-banner {
+    background-color: var(--accent-green);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    border: 1px solid rgba(0, 98, 65, 0.1);
+}
+
+.philosophy-content i {
+    font-size: 50px;
+    color: var(--starbucks-green);
+    margin-bottom: 20px;
+}
+
+.philosophy-content h2 {
+    color: var(--house-green);
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.philosophy-content p {
+    font-size: 18px;
+    color: var(--house-green);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Container so sánh 2 cột */
+.rewards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reward-box {
+    padding: 50px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Màu sắc Card Vật chất */
+.reward-box.extrinsic {
+    background-color: #f1f8f5;
+    border: 1px solid var(--accent-green);
+}
+
+/* Màu sắc Card Phi vật chất - Tông Đen/Xanh đậm của Coffee Master */
+.reward-box.intrinsic {
+    background-color: var(--house-green);
+    color: white;
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.box-header i { font-size: 30px; color: var(--starbucks-green); }
+.intrinsic .box-header i { color: var(--accent-green); }
+
+.box-header h3 { font-size: 22px; font-weight: 700; }
+.box-desc { font-style: italic; margin-bottom: 40px; opacity: 0.9; }
+
+/* Từng mục nhỏ bên trong Card */
+.reward-item {
+    margin-bottom: 35px;
+}
+
+.reward-item h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--starbucks-green);
+    border-bottom: 2px solid rgba(0, 98, 65, 0.2);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.intrinsic .reward-item h4 {
+    color: var(--accent-green);
+    border-bottom-color: rgba(212, 233, 226, 0.3);
+}
+
+.reward-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.source-tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rewards-container {
+        grid-template-columns: 1fr;
+    }
+    .philosophy-banner {
+        padding: 40px 20px;
+    }
+}
+
+/* --- Thiết kế bảng Skinner theo mẫu mới --- */
+.skinner-table-block {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.modern-table-container {
+    border-radius: 16px; /* Bo góc toàn bộ bảng */
+    overflow: hidden; /* Đảm bảo header không bị tràn góc bo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.skinner-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+/* Header: Màu xanh đậm, chữ trắng in hoa */
+.skinner-table thead tr {
+    background-color: var(--house-green); /* Màu xanh #1e3932 */
+}
+
+.skinner-table th {
+    color: #ffffff;
+    text-align: left;
+    padding: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* Nội dung các ô */
+.skinner-table td {
+    padding: 20px;
+    line-height: 1.6;
+    vertical-align: top;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Cột Loại tăng cường: Chữ xanh lá */
+.type-col {
+    font-weight: 700;
+    color: var(--starbucks-green); /* Màu xanh #006241 */
+    width: 20%;
+}
+
+/* Hàng giữa (Tránh tiêu cực) có nền xanh nhạt theo mẫu */
+.highlight-row {
+    background-color: #f7faf9; /* Màu xanh mint cực nhạt */
+}
+
+/* Loại bỏ đường kẻ ở hàng cuối cùng */
+.skinner-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Tinh chỉnh tiêu đề phần 3 */
+.table-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.table-desc {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
