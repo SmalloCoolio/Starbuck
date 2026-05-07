@@ -7,9 +7,9 @@
 
 .banner-row {
     display: flex;
-    width: 100%;
-    min-height: 550px; /* Chiều cao cố định để các khung đều nhau */
-    align-items: stretch; /* Đảm bảo ảnh và chữ cao bằng nhau */
+    align-items: stretch; /* Đảm bảo khối ảnh và khối chữ có chiều cao bằng nhau */
+    overflow: hidden; /* Cắt bỏ phần thừa nếu có */
+    margin-bottom: 2px; /* Khoảng cách nhỏ giữa các dải banner */
 }
 
 /* TỰ ĐỘNG SO LE: Hàng số 2, 4, 6 sẽ đảo ngược ảnh sang phải */
@@ -19,15 +19,22 @@
 
 /* --- CẮT ẢNH ĐỀU NHAU --- */
 .banner-image {
-    flex: 1; /* Chiếm chính xác 50% */
-    overflow: hidden;
+    flex: 1; /* Chiếm 50% chiều rộng */
+    height: 500px; /* Đặt một chiều cao cố định cho tất cả các banner */
+    overflow: hidden; /* Quan trọng để bo góc hoạt động tốt */
 }
 
 .banner-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Quan trọng: Cắt ảnh đều mà không làm méo hình */
+    height: 100%; /* Ép ảnh lấp đầy chiều cao của khối cha */
+    object-fit: cover; /* QUAN TRỌNG: Giúp ảnh không bị méo, tự động cắt trung tâm */
     display: block;
+    border-radius: 0; /* Mặc định trong dải banner thường để sát mép */
+    transition: transform 0.5s ease;
+}
+
+.banner-row:hover .banner-image img {
+    transform: scale(1.05);
 }
 
 /* --- NỘI DUNG VĂN BẢN --- */
@@ -52,17 +59,14 @@
 .dark-text { color: #1e3932; }
 
 /* Responsive: Chuyển về 1 cột trên Mobile */
-@media (max-width: 992px) {
-    .banner-row, 
-    .banner-row:nth-child(even) {
-        flex-direction: column;
-        min-height: auto;
+@media (max-width: 768px) {
+    .banner-row {
+        flex-direction: column; /* Chuyển sang xếp chồng dọc */
+        height: auto;
     }
     .banner-image {
-        height: 350px; /* Chiều cao ảnh khi ở chế độ mobile */
-    }
-    .banner-content {
-        padding: 40px 20px;
+        height: 300px; /* Giảm chiều cao ảnh trên mobile */
+        width: 100%;
     }
 }
 /* --- Tinh chỉnh ô nổi để chữ ra giữa --- */
