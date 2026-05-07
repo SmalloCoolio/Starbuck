@@ -84,3 +84,19 @@ const modalData = {
             closeModal();
         }
     });
+
+
+    window.addEventListener('scroll', function() {
+    const hero = document.querySelector('.subpage-hero');
+    const scrollPos = window.scrollY;
+    
+    // Tính toán độ mờ: 1 là hiện rõ, 0 là biến mất hoàn toàn
+    // Số 400 là khoảng cách cuộn (pixel) để Hero mờ hẳn. Bạn có thể tăng/giảm số này.
+    let opacity = 1 - (scrollPos / 400); 
+    
+    if (opacity >= 0) {
+        hero.style.opacity = opacity;
+    } else {
+        hero.style.opacity = 0;
+    }
+});

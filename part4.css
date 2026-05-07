@@ -4,10 +4,14 @@
     background-image: url('https://vcdn1-kinhdoanh.vnecdn.net/2025/11/04/starbucks-china-1762230665-9707-1762230777.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=T6ScN8umeQxPYtISEatCeQ');
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: sticky;
+    top: 100px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.1s linear; 
+    will-change: opacity;
 }
 
 .hero-overlay {
@@ -474,4 +478,20 @@
     color: var(--text-grey);
     font-size: 16px;
     max-width: 800px; /* Giới hạn chiều rộng để chữ không bị tràn dài ra hai bên màn hình */
+}
+
+main.main-full-width {
+    position: relative;
+    z-index: 10;      /* Cao hơn hero để đè lên */
+    
+    /* BẮT BUỘC: Phải có màu nền để che đi phần hero bên dưới */
+    background-color: var(--starbucks-background); 
+    
+    /* Tùy chọn: Thêm đổ bóng ở mép trên để tạo chiều sâu khi đè lên ảnh */
+    box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Đảm bảo phần main bắt đầu ngay sau khi hero kết thúc về mặt bố cục */
+    margin-top: 0; 
+    padding-top: 20px;
+    margin-bottom: 0 !important;
 }

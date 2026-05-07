@@ -11,37 +11,6 @@
 
     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg">
 </head>
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-    }
-
-
-    
-</script>
 <body>
 
     <nav class="navbar">
@@ -87,6 +56,19 @@
         </div>
     </nav>
 
+    <section class="subpage-hero">
+        <div class="hero-overlay">
+            <div class="hero-text-container">
+                <span class="hero-subtitle">HỆ THỐNG QUẢN LÝ</span>
+                <h1 class="hero-title">PHẦN 1</h1>
+                <p class="hero-description">Tổng quan về hệ thống quản lý tại Starbucks</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-full-width">
+
+
     <div class="floating-summary-card">
     <div class="card-header">
         <i class="fa-solid fa-star"></i>
@@ -114,137 +96,135 @@
             <span>Hoạt động từ 2013, nổi bật với phân khúc cao cấp và merchandise gây sốt.</span>
         </div>
     </div>
-</div>
+    </div>
 
 
-
-<main class="main-full-width">
-    <section class="banner-row" id="overview">
-        <div class="banner-image">
-            <img src="https://drive.google.com/thumbnail?id=11dkSP7m8NPpxU4v-aQ3rFYcZSJaRniF1&sz=w1000" alt="Starbucks Store">
-        </div>
-        <div class="banner-content house-green-bg">
-            <div class="text-box">
-                <span class="sub-title">Triết lý kinh doanh</span>
-                <h1>Giới thiệu về Starbucks</h1>
-                <p>Starbucks định vị mình là <strong>"Nơi thứ ba"</strong> (The Third Place) - không gian kết nối giữa nhà và nơi làm việc.</p>
-                <p>Sứ mệnh của chúng tôi là nuôi dưỡng tinh thần con người thông qua <strong>"Sự kết nối nhân văn"</strong>.</p>
+        <section class="banner-row" id="overview">
+            <div class="banner-image">
+                <img src="https://drive.google.com/thumbnail?id=11dkSP7m8NPpxU4v-aQ3rFYcZSJaRniF1&sz=w1000" alt="Starbucks Store">
             </div>
-        </div>
-    </section>
-
-    <section class="banner-row" id="target-motivation">
-        <div class="banner-image">
-            <img src="https://drive.google.com/thumbnail?id=1iE7oLHKV69IjlFTh3RuHMEitdkIh8iQJ&sz=w1000" alt="Starbucks Barista">
-        </div>
-        <div class="banner-content peach-bg">
-            <div class="text-box dark-text">
-                <h2>Đối tượng tạo động lực</h2>
-                <p>Nhóm tập trung vào đội ngũ <strong>Barista</strong> và <strong>Shift Supervisors</strong> trực tiếp tạo ra trải nghiệm khách hàng.</p>
-                <div class="reason-highlight">
-                    <strong>Lý do lựa chọn:</strong> Đội ngũ này chủ yếu là <strong>Gen Z</strong> - những người ưu tiên hòa hợp cuộc sống và trách nhiệm xã hội.
+            <div class="banner-content house-green-bg">
+                <div class="text-box">
+                    <span class="sub-title">Triết lý kinh doanh</span>
+                    <h1>Giới thiệu về Starbucks</h1>
+                    <p>Starbucks định vị mình là <strong>"Nơi thứ ba"</strong> (The Third Place) - không gian kết nối giữa nhà và nơi làm việc.</p>
+                    <p>Sứ mệnh của chúng tôi là nuôi dưỡng tinh thần con người thông qua <strong>"Sự kết nối nhân văn"</strong>.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="banner-row" id="motivation">
-        <div class="banner-image">
-            <img src="https://drive.google.com/thumbnail?id=1iTkuUHu9JmBcfWZSiL8lbq-xChUPJxch&sz=w1000" alt="Motivation">
+        <section class="banner-row" id="target-motivation">
+            <div class="banner-image">
+                <img src="https://drive.google.com/thumbnail?id=1iE7oLHKV69IjlFTh3RuHMEitdkIh8iQJ&sz=w1000" alt="Starbucks Barista">
+            </div>
+            <div class="banner-content peach-bg">
+                <div class="text-box dark-text">
+                    <h2>Đối tượng tạo động lực</h2>
+                    <p>Nhóm tập trung vào đội ngũ <strong>Barista</strong> và <strong>Shift Supervisors</strong> trực tiếp tạo ra trải nghiệm khách hàng.</p>
+                    <div class="reason-highlight">
+                        <strong>Lý do lựa chọn:</strong> Đội ngũ này chủ yếu là <strong>Gen Z</strong> - những người ưu tiên hòa hợp cuộc sống và trách nhiệm xã hội.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner-row" id="motivation">
+            <div class="banner-image">
+                <img src="https://drive.google.com/thumbnail?id=1iTkuUHu9JmBcfWZSiL8lbq-xChUPJxch&sz=w1000" alt="Motivation">
+            </div>
+            <div class="banner-content accent-green-bg">
+                <div class="text-box dark-text">
+                    <h2>Hệ thống tạo động lực</h2>
+                    <p>Tập trung vào các công cụ kinh tế như <strong>Bean Stock</strong> (tặng cổ phiếu) và chi trả 100% học phí đại học.</p>
+                    <p>Bên cạnh đó là văn hóa <strong>'Đối tác'</strong> và trao quyền tương tác cá nhân không kịch bản.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="rationale-section" id="rationale">
+            <h2 class="center-title">1.3. Lý do lựa chọn đối tượng (Rationale)</h2>
+            
+            <div class="table-wrapper">
+                <table class="rationale-table">
+                    <thead>
+                        <tr>
+                            <th>Yếu tố</th>
+                            <th>Nguyên nhân</th>
+                            <th>Hậu quả nếu không tạo động lực</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-feature">Sự cạnh tranh</td>
+                            <td>Sự bùng nổ của các chuỗi cà phê bản địa và nền kinh tế Gig (Grab, Shopee Food) đã tạo ra nhiều lựa chọn hơn.</td>
+                            <td>'Chảy máu' nhân viên lành nghề, mất chi phí tuyển dụng liên tục.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Áp lực công việc</td>
+                            <td>Áp lực phục vụ khách hàng khó tính và yêu cầu độ chính xác cao trong pha chế.</td>
+                            <td>Nhân viên bị kiệt sức, dẫn đến thái độ phục vụ kém.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Chi phí cơ hội</td>
+                            <td>Nhân sự nắm giữ 'tri thức ẩn' về khẩu vị khách hàng quen thuộc..</td>
+                            <td>Mất đi đà tăng trưởng và sự gắn kết của khách hàng thân thiết.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <section class="brand-team-section">
+
+        <div class="brand-header-banner">
+            <h2>Các Thành Viên Nhóm 6</h2>
         </div>
-        <div class="banner-content accent-green-bg">
-            <div class="text-box dark-text">
-                <h2>Hệ thống tạo động lực</h2>
-                <p>Tập trung vào các công cụ kinh tế như <strong>Bean Stock</strong> (tặng cổ phiếu) và chi trả 100% học phí đại học.</p>
-                <p>Bên cạnh đó là văn hóa <strong>'Đối tác'</strong> và trao quyền tương tác cá nhân không kịch bản.</p>
+        
+        <div class="brand-grid-container">
+            <!-- Thành viên 1 -->
+            <div class="team-member-item">
+                <div class="member-frame">
+                    <img src="https://drive.google.com/thumbnail?id=1I1WKjzvNGvXEwexlLJ_2cIbm8tgzbYBb&sz=w1000" alt="abc">
+                </div>
+                <p class="member-label">Thảo Nguyên</p>
+            </div>
+
+                    <!-- Thành viên 4 (Dạng khung trống - Placeholder) -->
+            <div class="team-member-item">
+                <div class="member-frame placeholder">
+                    <img src="https://drive.google.com/thumbnail?id=159Fn0EQ-FxeoXSefLrtzbUIY-UfDG6y3&sz=w1000" alt="abc">
+                </div>
+                <p class="member-label">Diệu Hà</p>
+            </div>
+
+            <!-- Thành viên 2 -->
+            <div class="team-member-item">
+                <div class="member-frame">
+                    <img src="https://drive.google.com/thumbnail?id=1v32A51x__F3_tjtCiqzsijqmkJTa1ymP&sz=w1000" alt="abc">
+                </div>
+                <p class="member-label">Đăng Dương</p>
+            </div>
+
+            <!-- Thành viên 3 -->
+            <div class="team-member-item">
+                <div class="member-frame">
+                    <img src="https://drive.google.com/thumbnail?id=1kT2AOfoq-ZpbqWc05-Zpz1CrUPqnkJsT&sz=w1000" alt="abc">
+                </div>
+                <p class="member-label">Huyền Trang</p>
+            </div>
+
+
+            <!-- Thành viên 5 (Dạng khung trống - Placeholder) -->
+            <div class="team-member-item">
+                <div class="member-frame placeholder">
+                    <img src="https://drive.google.com/thumbnail?id=1kT2AOfoq-ZpbqWc05-Zpz1CrUPqnkJsT&sz=w1000" alt="abc">
+                </div>
+                <p class="member-label">abc</p>
             </div>
         </div>
-    </section>
 
-<section class="rationale-section" id="rationale">
-    <h2 class="center-title">1.3. Lý do lựa chọn đối tượng (Rationale)</h2>
-    
-    <div class="table-wrapper">
-        <table class="rationale-table">
-            <thead>
-                <tr>
-                    <th>Yếu tố</th>
-                    <th>Nguyên nhân</th>
-                    <th>Hậu quả nếu không tạo động lực</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="col-feature">Sự cạnh tranh</td>
-                    <td>Sự bùng nổ của các chuỗi cà phê bản địa và nền kinh tế Gig (Grab, Shopee Food) đã tạo ra nhiều lựa chọn hơn.</td>
-                    <td>'Chảy máu' nhân viên lành nghề, mất chi phí tuyển dụng liên tục.</td>
-                </tr>
-                <tr>
-                    <td class="col-feature">Áp lực công việc</td>
-                    <td>Áp lực phục vụ khách hàng khó tính và yêu cầu độ chính xác cao trong pha chế.</td>
-                    <td>Nhân viên bị kiệt sức, dẫn đến thái độ phục vụ kém.</td>
-                </tr>
-                <tr>
-                    <td class="col-feature">Chi phí cơ hội</td>
-                    <td>Nhân sự nắm giữ 'tri thức ẩn' về khẩu vị khách hàng quen thuộc..</td>
-                    <td>Mất đi đà tăng trưởng và sự gắn kết của khách hàng thân thiết.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-
-    <section class="brand-team-section">
-
-    <div class="brand-header-banner">
-        <h2>Các Thành Viên Nhóm</h2>
-    </div>
-    
-    <div class="brand-grid-container">
-        <!-- Thành viên 1 -->
-        <div class="team-member-item">
-            <div class="member-frame">
-                <img src="https://drive.google.com/thumbnail?id=1I1WKjzvNGvXEwexlLJ_2cIbm8tgzbYBb&sz=w1000" alt="abc">
-            </div>
-            <p class="member-label">Thảo Nguyên</p>
-        </div>
-
-                <!-- Thành viên 4 (Dạng khung trống - Placeholder) -->
-        <div class="team-member-item">
-            <div class="member-frame placeholder">
-                <img src="https://drive.google.com/thumbnail?id=159Fn0EQ-FxeoXSefLrtzbUIY-UfDG6y3&sz=w1000" alt="abc">
-            </div>
-            <p class="member-label">Diệu Hà</p>
-        </div>
-
-        <!-- Thành viên 2 -->
-        <div class="team-member-item">
-            <div class="member-frame">
-                <img src="https://drive.google.com/thumbnail?id=1v32A51x__F3_tjtCiqzsijqmkJTa1ymP&sz=w1000" alt="abc">
-            </div>
-            <p class="member-label">Đăng Dương</p>
-        </div>
-
-        <!-- Thành viên 3 -->
-        <div class="team-member-item">
-            <div class="member-frame">
-                <img src="https://drive.google.com/thumbnail?id=1kT2AOfoq-ZpbqWc05-Zpz1CrUPqnkJsT&sz=w1000" alt="abc">
-            </div>
-            <p class="member-label">Huyền Trang</p>
-        </div>
-
-
-        <!-- Thành viên 5 (Dạng khung trống - Placeholder) -->
-        <div class="team-member-item">
-            <div class="member-frame placeholder">
-                <img src="https://drive.google.com/thumbnail?id=1kT2AOfoq-ZpbqWc05-Zpz1CrUPqnkJsT&sz=w1000" alt="abc">
-            </div>
-            <p class="member-label">abc</p>
-        </div>
-    </div>
-
-    </section>
+        </section>
 
     </main>
 
@@ -295,4 +275,23 @@
     </footer>
 
 </body>
+<script>
+
+
+    window.addEventListener('scroll', function() {
+        const hero = document.querySelector('.subpage-hero');
+        const scrollPos = window.scrollY;
+        
+        // Tính toán độ mờ: 1 là hiện rõ, 0 là biến mất hoàn toàn
+        // Số 400 là khoảng cách cuộn (pixel) để Hero mờ hẳn. Bạn có thể tăng/giảm số này.
+        let opacity = 1 - (scrollPos / 400); 
+        
+        if (opacity >= 0) {
+            hero.style.opacity = opacity;
+        } else {
+            hero.style.opacity = 0;
+        }
+    });
+    
+</script>
 </html>

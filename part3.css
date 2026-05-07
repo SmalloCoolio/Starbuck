@@ -4,10 +4,15 @@
     background-image: url('https://drive.google.com/thumbnail?id=15pjBICuq0WYAVmEqnVL-nz7k5RAHcW7W&sz=w1000');
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: sticky;
+    top: 100px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    transition: opacity 0.1s linear; 
+    will-change: opacity;
 }
 
 .hero-overlay {
@@ -445,4 +450,20 @@
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         border: 1px solid #eee;
     }
+}
+
+main.main-full-width {
+    position: relative;
+    z-index: 10;      /* Cao hơn hero để đè lên */
+    
+    /* BẮT BUỘC: Phải có màu nền để che đi phần hero bên dưới */
+    background-color: var(--starbucks-background); 
+    
+    /* Tùy chọn: Thêm đổ bóng ở mép trên để tạo chiều sâu khi đè lên ảnh */
+    box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Đảm bảo phần main bắt đầu ngay sau khi hero kết thúc về mặt bố cục */
+    margin-top: 0; 
+    padding-top: 20px;
+    margin-bottom: 0 !important;
 }

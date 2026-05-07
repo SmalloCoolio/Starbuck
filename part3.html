@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phân tích & Giải pháp - Starbucks Project</title>
+    <title>Phân tích & Giải pháp - NEU Project</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -296,4 +296,23 @@
         </div>
     </footer>    
 </body>
+<script>
+    // JavaScript để xử lý hiệu ứng mờ dần khi cuộn
+    window.addEventListener('scroll', function() {
+        const heroOverlay = document.querySelector('.hero-overlay');
+        const scrollY = window.scrollY;
+        const fadeStart = 0; // Điểm bắt đầu mờ
+        const fadeEnd = 300; // Điểm kết thúc mờ
+
+        if (scrollY < fadeStart) {
+            heroOverlay.style.opacity = 1; // Hoàn toàn rõ ràng
+        } else if (scrollY > fadeEnd) {
+            heroOverlay.style.opacity = 0; // Hoàn toàn mờ
+        } else {
+            // Tính toán độ mờ dựa trên vị trí cuộn
+            const opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            heroOverlay.style.opacity = opacity;
+        }
+    });
+</script>
 </html>

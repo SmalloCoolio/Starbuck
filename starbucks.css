@@ -123,8 +123,8 @@ body {
     background-color: var(--house-green); /* Footer màu xanh đậm rất đặc trưng Starbucks */    
     border-top: 1px solid #e0e0e0;
     overflow: hidden;
-    margin-top: 50px;
-    z-index: 10;
+    margin-top: 0 !important;
+    z-index: 11;
     color: var(--starbucks-white);
     padding: 80px 10%;
 }
