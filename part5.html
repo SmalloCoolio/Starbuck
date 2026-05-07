@@ -6,34 +6,61 @@
     <title>Star-Coffee Manager Simulator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="game.css">
-
     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg">
-
+    <script src="game.js"></script>
 </head>
 <body>
 
     <div id="login-screen">
         <div class="login-box">
-            <i class="fa-solid"><img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="" srcset=""></i>
-            <h2>Star-Coffee Manager</h2>
-            <p>Nhập tên quản lý để bắt đầu</p>
-            <input type="text" id="player-name" placeholder="Ví dụ: Nguỹn Dưn" maxlength="15">
-            <button class="btn" onclick="initGame()">Bắt Đầu Kinh Doanh</button>
-            <button class="btn btn-secondary" onclick="loadGame()">Tải Game Cũ</button>
+            <div class="login-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks Logo">
+            </div>
+            <h2>Being a Starbucks Manager</h2>
+            <p>Nhập tên bạn để bắt đầu</p>
+            
+            <input type="text" id="player-name" placeholder="Ví dụ: Nguyễn Dưn" maxlength="15">
+            
+            <button class="btn" onclick="initGame()">Bắt Đầu</button>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'"> 
+                <i class="fa-solid fa-arrow-left"></i> Quay về 
+            </button>
         </div>
     </div>
 
     <div id="game-ui">
         <header>
-            <div class="stats-group">
-                <i class="fa-solid fa-user-tie" style="font-size: 24px;"></i>
-                <div>
-                    <div id="ui-name" class="ui-name-text">Tên</div>
-                    <div id="ui-level" class="ui-level-text">Level 1</div>
+            <div class="user-profile-container" style="position: relative;">
+                
+                <div class="user-profile" onclick="toggleProfileMenu(event)">
+                    <div class="avatar-container">
+                        <div class="avatar-circle">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="level-badge" id="ui-level-badge">1</div>
+                    </div>
+                    <div class="user-info">
+                        <div id="ui-name" class="profile-name">Dương</div>
+                        <div class="profile-rank">
+                            <i class="fa-solid fa-award"></i>
+                            <span id="ui-level-text">Quản lý cấp 1</span>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="profile-dropdown" class="profile-dropdown">
+                    <button class="dropdown-item" onclick="closeProfileMenu()">
+                        <i class="fa-solid fa-play"></i> Chơi tiếp
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item exit-item" onclick="window.location.href='index.html'">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát ra
+                    </button>
+                </div>
+
             </div>
             <div class="stats-group">
-                <div class="stat-item money"><i class="fa-solid fa-dollar-sign"></i> <span id="ui-money">500</span></div>
+                <div class="stat-item money"><i class="fa-solid fa-dollar-sign"></i> <span id="ui-money">1000</span></div>
                 <div class="stat-item rep"><i class="fa-solid fa-star"></i> <span id="ui-rep">3.0</span></div>
                 <div class="stat-item"><i class="fa-regular fa-calendar"></i> Ngày <span id="ui-day">1</span></div>
                 <button class="btn theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
@@ -53,59 +80,203 @@
                     </div>
             </div>
 
+            <div class="panel-section luxury-menu">
+                    <div class="menu-dropdown-header" onclick="toggleMenuDropdown()">
+                        <div class="menu-title-left">
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <h3>Menu Đồ Uống</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down" id="menu-toggle-icon"></i>
+                    </div>
+
+                    <div class="menu-dropdown-body" id="menu-dropdown-body">
+                        
+                        <div class="drink-list-item">
+                            <span class="drink-index">1</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedCaffeAmericano?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85
+                                " class="drink-thumb" alt="Americano">
+                            <div class="drink-details">
+                                <h4>Iced Americano</h4>
+                                <div class="price-controls">
+                                    <button onclick="changePrice('coffee', -1)">-</button>
+                                    <span id="price-coffee">$3</span>
+                                    <button onclick="changePrice('coffee', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item">
+                            <span class="drink-index">2</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedCaffeLatte?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85
+                            " class="drink-thumb" alt="Latte">
+                            <div class="drink-details">
+                                <h4>Iced Caffee Latte</h4>
+                                <div class="price-controls">
+                                    <button onclick="changePrice('latte', -1)">-</button>
+                                    <span id="price-latte">$5</span>
+                                    <button onclick="changePrice('latte', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item">
+                            <span class="drink-index">3</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20220323_CaramelFrapp?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Frappuccino">
+                            <div class="drink-details">
+                                <h4>Frappuccino</h4>
+                                <div class="price-controls">
+                                    <button onclick="changePrice('frapp', -1)">-</button>
+                                    <span id="price-frapp">$7</span>
+                                    <button onclick="changePrice('frapp', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item">
+                            <span class="drink-index">4</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20211029_CaramelMacchiato?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Macchiato">
+                            <div class="drink-details">
+                                <h4>Caramel Macchiato</h4>
+                                <div class="price-controls">
+                                    <button onclick="changePrice('macchiato', -1)">-</button>
+                                    <span id="price-macchiato">$6</span>
+                                    <button onclick="changePrice('macchiato', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item sold-out" id="item-matcha">
+                            <span class="drink-index">5</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/NitroColdBrew?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Matcha">
+                            <div class="drink-details">
+                                <h4>Matcha Latte <span class="sold-tag" id="tag-matcha">KHÓA 4⭐</span></h4>
+                                <div class="price-controls" id="ctrl-matcha" style="display: none;">
+                                    <button onclick="changePrice('matcha', -1)">-</button>
+                                    <span id="price-matcha" style="font-weight:bold;">$8</span>
+                                    <button onclick="changePrice('matcha', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item sold-out" id="item-coldbrew">
+                            <span class="drink-index">6</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedMatchaTeaLatte?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Cold Brew">
+                            <div class="drink-details">
+                                <h4>Cold Brew <span class="sold-tag" id="tag-coldbrew">KHÓA 5⭐</span></h4>
+                                <div class="price-controls" id="ctrl-coldbrew" style="display: none;">
+                                    <button onclick="changePrice('coldbrew', -1)">-</button>
+                                    <span id="price-coldbrew" style="font-weight:bold;">$10</span>
+                                    <button onclick="changePrice('coldbrew', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drink-list-item sold-out">
+                            <span class="drink-index">7</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/PinkDrink?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Pink Drink">
+                            <div class="drink-details">
+                                <h4>Pink Drink <span class="sold-tag">HẾT</span></h4>
+                                <span class="lock-price">$7</span>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item sold-out">
+                            <span class="drink-index">8</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/MochaFrappuccino?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Mocha">
+                            <div class="drink-details">
+                                <h4>Mocha Frapp <span class="sold-tag">HẾT</span></h4>
+                                <span class="lock-price">$7</span>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item sold-out">
+                            <span class="drink-index">9</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20230406_FlatWhite?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Flat White">
+                            <div class="drink-details">
+                                <h4>Flat White <span class="sold-tag">HẾT</span></h4>
+                                <span class="lock-price">$5</span>
+                            </div>
+                        </div>
+
+                        <div class="drink-list-item sold-out">
+                            <span class="drink-index">10</span>
+                            <img src="https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedShakenEspresso?impolicy=1by1_wide_topcrop_630&crop=180,360,1440,1440&wid=630&hei=630&qlt=85" class="drink-thumb" alt="Shaken Espresso">
+                            <div class="drink-details">
+                                <h4>Shaken Espresso <span class="sold-tag">HẾT</span></h4>
+                                <span class="lock-price">$6</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="hint-text" style="margin-top:15px; text-align:center;">*Giá cao = Giảm khách, Giá thấp = Tăng uy tín</p>
+                </div>
+
+
+
+
             <div class="sidebar">
-                <div class="panel-section">
-                    <h3><i class="fa-solid fa-tags"></i> Bảng Giá Menu</h3>
-                    <div class="menu-item">
-                        <span><i class="fa-solid fa-mug-saucer"></i> Cafe Đen</span>
-                        <div class="price-control">
-                            <button onclick="changePrice('coffee', -1)">-</button>
-                            <span id="price-coffee">$3</span>
-                            <button onclick="changePrice('coffee', 1)">+</button>
-                        </div>
+                
+                <div class="panel-section premium-panel">
+                    <div class="panel-header">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <h3>Nâng Cấp Cửa Hàng</h3>
                     </div>
-                    <div class="menu-item">
-                        <span><i class="fa-solid fa-glass-water"></i> Latte</span>
-                        <div class="price-control">
-                            <button onclick="changePrice('latte', -1)">-</button>
-                            <span id="price-latte">$5</span>
-                            <button onclick="changePrice('latte', 1)">+</button>
+                    <div class="upgrade-list">
+                        
+                        <div class="upgrade-card">
+                            <div class="upgrade-info">
+                                <div class="upgrade-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                                <div class="upgrade-text">
+                                    <h4>Marketing</h4>
+                                    <p>Thu hút thêm khách hàng</p>
+                                </div>
+                            </div>
+                            <div class="upgrade-action">
+                                <div class="level-badge-upg">Cấp: <span id="lvl-marketing">0</span></div>
+                                <button id="btn-upg-marketing" class="btn-buy" onclick="buyUpgrade('marketing')">
+                                    $100 <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <span><i class="fa-solid fa-martini-glass"></i> Frappuccino</span>
-                        <div class="price-control">
-                            <button onclick="changePrice('frapp', -1)">-</button>
-                            <span id="price-frapp">$7</span>
-                            <button onclick="changePrice('frapp', 1)">+</button>
-                        </div>
-                    </div>
-                    <p class="hint-text">*Giá cao = Giảm khách, Giá thấp = Tăng uy tín</p>
-                </div>
 
-                <div class="panel-section">
-                    <h3><i class="fa-solid fa-arrow-trend-up"></i> Nâng Cấp Cửa Hàng</h3>
-                    <div class="upgrade-item">
-                        <strong>Marketing (Tăng lượng khách)</strong>
-                        <div class="upgrade-action">
-                            <span id="lvl-marketing">Cấp: 0</span>
-                            <button id="btn-upg-marketing" class="btn btn-sm" onclick="buyUpgrade('marketing')">Mua ($100)</button>
+                        <div class="upgrade-card">
+                            <div class="upgrade-info">
+                                <div class="upgrade-icon"><i class="fa-solid fa-gem"></i></div>
+                                <div class="upgrade-text">
+                                    <h4>Chất lượng</h4>
+                                    <p>Tăng khả năng chi trả của khách</p>
+                                </div>
+                            </div>
+                            <div class="upgrade-action">
+                                <div class="level-badge-upg">Cấp: <span id="lvl-quality">0</span></div>
+                                <button id="btn-upg-quality" class="btn-buy" onclick="buyUpgrade('quality')">
+                                    $150 <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="upgrade-item">
-                        <strong>Chất lượng (Tăng khả năng chi trả)</strong>
-                        <div class="upgrade-action">
-                            <span id="lvl-quality">Cấp: 0</span>
-                            <button id="btn-upg-quality" class="btn btn-sm" onclick="buyUpgrade('quality')">Mua ($150)</button>
-                        </div>
+
                     </div>
                 </div>
 
-                <div class="panel-section">
-                    <h3><i class="fa-solid fa-file-invoice-dollar"></i> Chi phí cố định/ngày</h3>
-                    <div class="report-line"><span>Mặt bằng:</span> <span>-$50</span></div>
-                    <div class="report-line"><span>Nhân viên:</span> <span>-$30</span></div>
-                    <div class="report-line"><span>Giá vốn/Ly:</span> <span>-$1</span></div>
+                <div class="panel-section premium-panel">
+                    <div class="panel-header">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <h3>Chi phí cố định/Ngày</h3>
+                    </div>
+                    <div class="cost-receipt">
+                        <div class="cost-item">
+                            <span class="cost-label"><i class="fa-solid fa-shop"></i> Thuê mặt bằng</span>
+                            <span class="cost-value" id="ui-cost-rent">-$20</span> 
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label"><i class="fa-solid fa-user-group"></i> Lương nhân viên</span>
+                            <span class="cost-value" id="ui-cost-staff">-$15</span>
+                        </div>
+                        <div class="cost-divider"></div>
+                        <div class="cost-item highlight-cost">
+                            <span class="cost-label"><i class="fa-solid fa-mug-hot"></i> Giá vốn / 1 Ly</span>
+                            <span class="cost-value" id="ui-cost-cup">-$1.0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,12 +285,36 @@
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <h2 id="modal-title">Tổng Kết Ngày</h2>
-            <div id="modal-body">
-                </div>
+            <div id="modal-body"></div>
             <button id="modal-btn" class="btn full-width-btn" onclick="closeModal()">Tiếp Tục</button>
         </div>
     </div>
 
-    <script src="game.js"></script>
+    <div id="level-up-overlay" class="level-up-overlay">
+    <div class="level-up-card">
+        <div class="confetti-container"></div> <div class="level-badge-glow">
+            <div class="level-badge-inner">
+                <i class="fa-solid fa-crown"></i>
+                <span id="level-number-popup">2</span>
+            </div>
+        </div>
+        <h2 class="level-up-title">THĂNG CẤP QUẢN LÝ!</h2>
+        <p class="level-up-msg">Chúc mừng <strong>Dương</strong>, kỹ năng pha chế và quản lý của bạn đã đạt tầm cao mới!</p>
+        
+        <div class="unlocked-perks">
+            <div class="perk-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Mở khóa công thức đồ uống mới</span>
+            </div>
+            <div class="perk-item">
+                <i class="fa-solid fa-users-gear"></i>
+                <span>Tăng khả năng quản lý nhân sự</span>
+            </div>
+        </div>
+
+        <button class="level-up-btn" onclick="closeLevelUp()">TIẾP TỤC SỰ NGHIỆP</button>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,197 +1,152 @@
-/* --- Cấu trúc Full-width Zig-zag --- */
-.main-full-width {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+/* --- 1. SETUP CHUNG & BIẾN (Variables) --- */
+:root {
+    --house-green: #1e3932;
+    --starbucks-green: #006241;
+    --accent-green: #d4e9e2;
+    --starbucks-white: #ffffff;
+    --starbucks-background: #f1f8f5;
+    --text-black: #000000;
 }
 
+/* Tối ưu hóa Reset */
+.main-full-width { width: 100%; margin: 0; padding: 0; }
+
+/* --- 2. CẤU TRÚC ZIG-ZAG BANNERS --- */
 .banner-row {
     display: flex;
-    align-items: stretch; /* Đảm bảo khối ảnh và khối chữ có chiều cao bằng nhau */
-    overflow: hidden; /* Cắt bỏ phần thừa nếu có */
-    margin-bottom: 2px; /* Khoảng cách nhỏ giữa các dải banner */
+    align-items: stretch;
+    overflow: hidden;
+    margin-bottom: 2px;
 }
 
-/* TỰ ĐỘNG SO LE: Hàng số 2, 4, 6 sẽ đảo ngược ảnh sang phải */
-.banner-row:nth-child(even) {
-    flex-direction: row-reverse;
-}
+.banner-row:nth-child(even) { flex-direction: row-reverse; }
 
-/* --- CẮT ẢNH ĐỀU NHAU --- */
-.banner-image {
-    flex: 1; /* Chiếm 50% chiều rộng */
-    height: 500px; /* Đặt một chiều cao cố định cho tất cả các banner */
-    overflow: hidden; /* Quan trọng để bo góc hoạt động tốt */
-}
+/* Gộp chung thuộc tính flex cho Image và Content */
+.banner-image, .banner-content { flex: 1; }
+
+.banner-image { height: 500px; overflow: hidden; }
 
 .banner-image img {
     width: 100%;
-    height: 100%; /* Ép ảnh lấp đầy chiều cao của khối cha */
-    object-fit: cover; /* QUAN TRỌNG: Giúp ảnh không bị méo, tự động cắt trung tâm */
-    display: block;
-    border-radius: 0; /* Mặc định trong dải banner thường để sát mép */
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.banner-row:hover .banner-image img {
-    transform: scale(1.05);
-}
+.banner-row:hover .banner-image img { transform: scale(1.05); }
 
-/* --- NỘI DUNG VĂN BẢN --- */
 .banner-content {
-    flex: 1; /* Chiếm chính xác 50% */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 60px 8%;
 }
 
-.text-box {
-    max-width: 500px;
-    width: 100%;
-}
+.text-box { max-width: 500px; width: 100%; }
 
-/* Màu sắc Theme Starbucks */
-.house-green-bg { background-color: #1e3932; color: #ffffff; }
-.peach-bg { background-color: #f2d2bd; }
-.accent-green-bg { background-color: #d4e9e2; }
+/* --- 3. COMPONENTS (Cards & Tables) --- */
 
-.dark-text { color: #1e3932; }
-
-/* Responsive: Chuyển về 1 cột trên Mobile */
-@media (max-width: 768px) {
-    .banner-row {
-        flex-direction: column; /* Chuyển sang xếp chồng dọc */
-        height: auto;
-    }
-    .banner-image {
-        height: 300px; /* Giảm chiều cao ảnh trên mobile */
-        width: 100%;
-    }
-}
-/* --- Tinh chỉnh ô nổi để chữ ra giữa --- */
-.floating-summary-card {
+/* Gộp chung hiệu ứng Hover và Shadow cho Card & Table Wrapper */
+.floating-summary-card, .table-wrapper {
     background-color: var(--starbucks-white);
     border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 98, 65, 0.05);
+    border: 1px solid var(--accent-green);
+}
+
+.floating-summary-card {
     padding: 35px;
     margin-bottom: 40px;
-    box-shadow: 0 20px 40px rgba(0, 98, 65, 0.1);
-    border: 1px solid var(--accent-green);
-    position: relative;
-    text-align: center; /* Căn giữa toàn bộ văn bản mặc định */
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
-/* Căn giữa tiêu đề của Card */
+/* Gộp chung Style tiêu đề phụ (Caps, Spacing) */
+.card-header, .info-item strong, .rationale-table th {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+}
+
 .card-header {
     display: flex;
     align-items: center;
-    justify-content: center; /* Đưa cả Icon và Text ra giữa */
+    justify-content: center;
     gap: 12px;
     margin-bottom: 25px;
     color: var(--starbucks-green);
-    font-weight: 700;
-    text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 1.5px;
 }
 
-/* Căn giữa nội dung các mục thông tin */
 .card-body {
     display: grid;
-    grid-template-columns: 1fr; /* Chuyển về 1 cột để căn giữa trông thoáng hơn */
     gap: 20px;
-    max-width: 800px; /* Giới hạn độ rộng để nội dung không bị loãng */
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .info-item {
-    font-size: 16px;
-    line-height: 1.6;
     display: flex;
-    flex-direction: column; /* Xếp tiêu đề trên, nội dung dưới */
-    align-items: center;    /* Căn giữa theo trục ngang */
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.6;
 }
 
 .info-item strong {
     color: var(--house-green);
     font-size: 13px;
-    text-transform: uppercase;
     margin-bottom: 6px;
-    letter-spacing: 1px;
 }
 
-.info-item span {
-    color: var(--text-black);
-    max-width: 90% ; /* Để chữ không chạm mép khung */
-}
+/* --- 4. STYLE BẢNG RATIONALE --- */
+.rationale-section { padding: 60px 10%; background-color: var(--starbucks-white); }
 
-
-/* --- Style cho bảng Rationale 1.3 --- */
-.rationale-section {
-    padding: 60px 10%;
-    background-color: var(--starbucks-white);
-}
-
-.table-wrapper {
-    overflow-x: auto; /* Hỗ trợ xem trên điện thoại */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin-top: 35px;
-    border: 1px solid #eee;
-}
+.table-wrapper { overflow-x: auto; margin-top: 35px; border-radius: 15px; }
 
 .rationale-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    min-width: 800px; /* Đảm bảo bảng không bị quá hẹp */
+    min-width: 800px;
 }
 
-/* Header của bảng: Màu xanh đậm House Green */
 .rationale-table th {
     background-color: var(--house-green);
     color: var(--starbucks-white);
-    text-align: left;
     padding: 22px 20px;
-    font-weight: 700;
-    text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 1.2px;
+    text-align: left;
 }
 
-/* Các ô dữ liệu */
 .rationale-table td {
     padding: 20px;
     border-bottom: 1px solid #eee;
     font-size: 15px;
     line-height: 1.6;
-    vertical-align: top; /* Chữ bắt đầu từ đỉnh ô */
+    vertical-align: top;
     color: var(--text-black);
 }
 
-/* Cột đầu tiên: Làm nổi bật tên yếu tố */
 .col-feature {
     font-weight: 700;
     color: var(--starbucks-green);
     width: 20%;
-    background-color: rgba(212, 233, 226, 0.2); /* Nền xanh mint cực nhạt */
+    background-color: rgba(212, 233, 226, 0.2);
 }
 
-/* Hiệu ứng so le hàng (Zebra Stripes) */
-.rationale-table tr:nth-child(even) {
-    background-color: var(--starbucks-background); /* Màu nền trắng ngà #f1f8f5 */
-}
+/* Gộp hiệu ứng hàng so le và hover */
+.rationale-table tr:nth-child(even) { background-color: var(--starbucks-background); }
+.rationale-table tr:hover { background-color: var(--accent-green); transition: 0.3s; }
 
-/* Hiệu ứng hover khi di chuột vào hàng */
-.rationale-table tr:hover {
-    background-color: var(--accent-green);
-    transition: background-color 0.3s ease;
-}
+/* --- 5. THEME COLORS & UTILITIES --- */
+.house-green-bg { background-color: var(--house-green); color: var(--starbucks-white); }
+.peach-bg { background-color: #f2d2bd; }
+.accent-green-bg { background-color: var(--accent-green); }
+.dark-text, .center-title { color: var(--house-green); }
+.center-title { text-align: center; margin-bottom: 20px; }
 
-/* Tinh chỉnh tiêu đề căn giữa */
-.center-title {
-    text-align: center;
-    color: var(--house-green);
-    margin-bottom: 20px;
+/* --- 6. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .banner-row { flex-direction: column; height: auto; }
+    .banner-image { height: 300px; width: 100%; }
+    .banner-content { padding: 40px 5%; }
 }
