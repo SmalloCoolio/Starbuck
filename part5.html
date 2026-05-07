@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star-Coffee Manager Simulator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <i class="fa-solid fa-mug-hot"></i>
+            <h2>Star-Coffee Manager</h2>
+            <p>Nhập tên quản lý để bắt đầu</p>
+            <input type="text" id="player-name" placeholder="Ví dụ: Howard Schultz" maxlength="15">
+            <button class="btn" onclick="initGame()">Bắt Đầu Kinh Doanh</button>
+            <button class="btn btn-secondary" onclick="loadGame()">Tải Game Cũ</button>
+        </div>
+    </div>
+
+    <div id="game-ui">
+        <header>
+            <div class="stats-group">
+                <i class="fa-solid fa-user-tie" style="font-size: 24px;"></i>
+                <div>
+                    <div id="ui-name" class="ui-name-text">Tên</div>
+                    <div id="ui-level" class="ui-level-text">Level 1</div>
+                </div>
+            </div>
+            <div class="stats-group">
+                <div class="stat-item money"><i class="fa-solid fa-dollar-sign"></i> <span id="ui-money">500</span></div>
+                <div class="stat-item rep"><i class="fa-solid fa-star"></i> <span id="ui-rep">3.0</span></div>
+                <div class="stat-item"><i class="fa-regular fa-calendar"></i> Ngày <span id="ui-day">1</span></div>
+                <button class="btn theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <div class="shop-area">
+                <div class="action-bar">
+                    <button id="btn-start-day" class="btn" onclick="startDay()"><i class="fa-solid fa-store"></i> Mở Cửa</button>
+                    <div class="progress-bar-container">
+                        <div id="day-progress" class="progress-fill"></div>
+                    </div>
+                    <div id="current-event" class="event-text">Sẵn sàng</div>
+                </div>
+                <div id="customer-zone" class="customer-zone">
+                    </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="panel-section">
+                    <h3><i class="fa-solid fa-tags"></i> Bảng Giá Menu</h3>
+                    <div class="menu-item">
+                        <span><i class="fa-solid fa-mug-saucer"></i> Cafe Đen</span>
+                        <div class="price-control">
+                            <button onclick="changePrice('coffee', -1)">-</button>
+                            <span id="price-coffee">$3</span>
+                            <button onclick="changePrice('coffee', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span><i class="fa-solid fa-glass-water"></i> Latte</span>
+                        <div class="price-control">
+                            <button onclick="changePrice('latte', -1)">-</button>
+                            <span id="price-latte">$5</span>
+                            <button onclick="changePrice('latte', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span><i class="fa-solid fa-martini-glass"></i> Frappuccino</span>
+                        <div class="price-control">
+                            <button onclick="changePrice('frapp', -1)">-</button>
+                            <span id="price-frapp">$7</span>
+                            <button onclick="changePrice('frapp', 1)">+</button>
+                        </div>
+                    </div>
+                    <p class="hint-text">*Giá cao = Giảm khách, Giá thấp = Tăng uy tín</p>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fa-solid fa-arrow-trend-up"></i> Nâng Cấp Cửa Hàng</h3>
+                    <div class="upgrade-item">
+                        <strong>Marketing (Tăng lượng khách)</strong>
+                        <div class="upgrade-action">
+                            <span id="lvl-marketing">Cấp: 0</span>
+                            <button id="btn-upg-marketing" class="btn btn-sm" onclick="buyUpgrade('marketing')">Mua ($100)</button>
+                        </div>
+                    </div>
+                    <div class="upgrade-item">
+                        <strong>Chất lượng (Tăng khả năng chi trả)</strong>
+                        <div class="upgrade-action">
+                            <span id="lvl-quality">Cấp: 0</span>
+                            <button id="btn-upg-quality" class="btn btn-sm" onclick="buyUpgrade('quality')">Mua ($150)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fa-solid fa-file-invoice-dollar"></i> Chi phí cố định/ngày</h3>
+                    <div class="report-line"><span>Mặt bằng:</span> <span>-$50</span></div>
+                    <div class="report-line"><span>Nhân viên:</span> <span>-$30</span></div>
+                    <div class="report-line"><span>Giá vốn/Ly:</span> <span>-$1</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modal-title">Tổng Kết Ngày</h2>
+            <div id="modal-body">
+                </div>
+            <button id="modal-btn" class="btn full-width-btn" onclick="closeModal()">Tiếp Tục</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

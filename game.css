@@ -1,0 +1,282 @@
+/* CSS Variables - Starbucks Theme */
+:root {
+    --primary-green: #006241;
+    --dark-green: #1e3932;
+    --light-green: #d4e9e2;
+    --accent-gold: #cba258;
+    --bg-color: #f1f8f5;
+    --panel-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-radius: 12px;
+    --danger: #e74c3c;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --panel-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --primary-green: #00b87c;
+    --light-green: #2c4a3e;
+    --dark-green: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+/* --- MÀN HÌNH ĐĂNG NHẬP --- */
+#login-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--dark-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.login-box {
+    background: var(--panel-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 400px;
+}
+.login-box i.fa-mug-hot {
+    font-size: 60px;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+.login-box h2 { color: var(--primary-green); }
+.login-box p { color: var(--text-muted); margin-top: 10px; }
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border: 2px solid var(--light-green);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+
+/* --- BUTTONS --- */
+.btn {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.2s, filter 0.2s;
+}
+.btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+.btn-secondary {
+    background: var(--text-muted);
+    margin-top: 10px;
+}
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.theme-btn { padding: 5px 15px; }
+.full-width-btn { margin-top: 20px; width: 100%; }
+
+/* --- DASHBOARD UI --- */
+#game-ui {
+    display: none;
+    height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    background: var(--dark-green);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.stats-group { display: flex; gap: 20px; align-items: center; }
+.ui-name-text { font-weight: bold; font-size: 18px; }
+.ui-level-text { font-size: 12px; color: var(--accent-gold); }
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.money { color: #2ecc71; }
+.rep { color: var(--accent-gold); }
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 350px;
+    background: var(--panel-bg);
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid var(--light-green);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.panel-section {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-green);
+}
+.panel-section h3 {
+    margin-bottom: 15px;
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--light-green);
+    padding-bottom: 5px;
+}
+
+/* Cài đặt giá & Nâng cấp */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.price-control { display: flex; align-items: center; gap: 10px; }
+.price-control button {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-green);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.hint-text { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
+.upgrade-item { margin-bottom: 15px; }
+.upgrade-action { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
+
+/* Center: Quán Cà Phê */
+.shop-area {
+    flex: 1;
+    position: relative;
+    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%23f1f8f5"/><path d="M0 100 L50 50 L100 100" fill="%23d4e9e2" opacity="0.3"/></svg>') repeat;
+    display: flex;
+    flex-direction: column;
+}
+[data-theme="dark"] .shop-area { background: var(--bg-color); }
+
+.action-bar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--light-green);
+}
+.event-text { font-weight: bold; color: var(--primary-green); }
+
+.progress-bar-container {
+    flex: 1;
+    height: 10px;
+    background: var(--light-green);
+    border-radius: 5px;
+    margin: 0 20px;
+    overflow: hidden;
+    position: relative;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-green);
+    transition: width 0.1s linear;
+}
+
+/* Khu vực khách hàng */
+.customer-zone {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+.customer {
+    position: absolute;
+    bottom: -50px;
+    font-size: 40px;
+    color: var(--text-main);
+    animation: walkIn 1s forwards, bob 0.5s infinite alternate;
+}
+.float-text {
+    position: absolute;
+    font-weight: bold;
+    font-size: 18px;
+    pointer-events: none;
+    animation: floatUp 1.5s forwards;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.float-good { color: #2ecc71; }
+.float-bad { color: var(--danger); }
+
+/* ANIMATIONS */
+@keyframes walkIn {
+    from { bottom: -50px; opacity: 0; }
+    to { bottom: 20%; opacity: 1; }
+}
+@keyframes bob {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: var(--panel-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    width: 400px;
+    text-align: center;
+}
+.modal-content h2 { margin-bottom: 20px; color: var(--primary-green); }
+.report-line { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--text-muted); }
+.total-line { font-size: 20px; font-weight: bold; margin-top: 20px; color: var(--primary-green); }
