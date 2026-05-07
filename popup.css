@@ -1,0 +1,203 @@
+/* =========================================
+   STYLE CHO POPUP (MODAL) READ MORE
+========================================= */
+
+/* Lớp phủ làm tối màn hình nền */
+.modal-overlay {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Giảm độ sáng phần ngoài khung */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Khi popup được bật (thêm class active bằng JS) */
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Khung nội dung Popup */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 1000px;
+    height: 70vh; /* Chiều cao cố định bằng 70% màn hình */
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(-30px); /* Hiệu ứng trượt từ trên xuống */
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Nút X để đóng Popup */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: var(--danger, #e74c3c); /* Đổi màu đỏ khi hover */
+}
+
+/* Bố cục chia 2 cột bên trong Popup */
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+/* Cột Ảnh (Bên trái) */
+.modal-image {
+    flex: 1; /* Chiếm 50% chiều rộng */
+    height: 100%;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh vừa vặn khung mà không bị méo */
+}
+
+/* Cột Chữ (Bên phải) */
+.modal-text {
+    flex: 1.2; /* Rộng hơn cột ảnh một chút (tỷ lệ 1 : 1.2) */
+    padding: 50px 40px;
+    overflow-y: auto; /* Cho phép cuộn nếu chữ quá dài */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-text h2 {
+    color: var(--house-green, #1e3932);
+    margin-bottom: 25px;
+    font-size: 26px;
+    line-height: 1.3;
+}
+
+.modal-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.modal-text ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-text li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Responsive: Chuyển thành 1 cột xếp chồng trên điện thoại */
+@media (max-width: 992px) {
+    .modal-body {
+        flex-direction: column;
+    }
+    .modal-content {
+        height: 85vh; /* Cao hơn trên điện thoại để dễ đọc */
+    }
+    .modal-image {
+        height: 250px;
+        flex: none;
+    }
+    .modal-text {
+        padding: 30px 20px;
+    }
+}
+
+/* =========================================
+   STYLE CHO POPUP (HIỆU ỨNG LUXURY BRAND)
+========================================= */
+
+.modal-overlay {
+    display: none; /* JS sẽ đổi thành flex khi bấm */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(8px); /* HIỆU ỨNG KÍNH MỜ (Glassmorphism) */
+    -webkit-backdrop-filter: blur(8px); /* Hỗ trợ Safari */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+}
+
+/* Khung nội dung Popup */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 24px; /* Bo góc tròn trịa hơn */
+    width: 85%;
+    max-width: 1000px;
+    height: 70vh;
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+    /* Hiệu ứng ban đầu: Nhỏ hơn một chút và nằm dưới thấp */
+    transform: translateY(40px) scale(0.95); 
+    opacity: 0;
+    /* CUBIC-BEZIER: Chuyển động nhanh lúc đầu, chậm mượt về cuối (Giống animation của Apple) */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Khi Active, Popup sẽ trượt lên và phóng to 100% */
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition-delay: 0.1s; /* Trễ 0.1s để nền mờ trước, khung xuất hiện sau tạo chiều sâu */
+}
+
+/* Bo góc cho các hình ảnh */
+img {
+    border-radius: 20px; /* Điều chỉnh thông số này từ 16px - 24px tùy ý */
+}
+
+/* Nếu bạn chỉ muốn bo góc ảnh trong các popup hoặc card cụ thể */
+.modal-image img,
+.card-image img {
+    border-radius: 20px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo khi bo góc */
+}
+
+/* Bo góc cho các thẻ (Card) và chặn ảnh tràn ra ngoài */
+.info-card, 
+.tree-card, 
+.lesson-card,
+.modal-content {
+    border-radius: 24px; /* Bo góc khung ngoài */
+    overflow: hidden; /* QUAN TRỌNG: Cắt bỏ phần ảnh vuông thừa ra ở các góc */
+}

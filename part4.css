@@ -1,0 +1,477 @@
+.subpage-hero {
+    width: 100%;
+    height: 450px;
+    background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Tăng độ mờ nhẹ để chữ đậm nổi bật hơn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-container {
+    text-align: center;
+    color: var(--starbucks-white);
+    /* Áp dụng Bold cho toàn bộ text bên trong */
+    font-weight: 800; 
+    text-transform: uppercase; /* Đảm bảo tất cả đều in hoa */
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-bottom: 40px; /* Tăng từ 15px lên 40px để tách xa chữ PHẦN 2 */
+    font-weight: 700;
+    color: var(--accent-green); /* Có thể dùng màu xanh mint để làm điểm nhấn */
+}
+
+.hero-title {
+    font-size: 90px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    /* Có thể thêm margin-bottom nếu muốn tách mô tả bên dưới ra thêm */
+    margin-bottom: 25px; 
+}
+
+.hero-description {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 0; /* Đã dùng margin-bottom của title để điều chỉnh */
+}
+
+
+
+/* ==========================================================================
+   PHẦN 4: TỔNG KẾT DỰ ÁN
+   ========================================================================== */
+
+/* Đổi ảnh nền cho Hero Phần 4 */
+.final-hero {
+    background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1600'); /* Khung cảnh quán cafe ấm cúng */
+}
+
+/* --- 1. Danh sách tóm tắt (Bullet List) --- */
+.summary-section {
+    padding: 60px 8%;
+    background-color: var(--starbucks-white);
+}
+
+.summary-list-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.styled-summary-list {
+    list-style: none;
+    padding: 0;
+}
+
+.styled-summary-list li {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-green);
+    transition: transform 0.2s ease;
+}
+
+.styled-summary-list li:hover {
+    transform: translateX(10px); /* Hiệu ứng trượt ngang nhẹ */
+    background-color: #f1f8f5;
+}
+
+.list-icon {
+    font-size: 24px;
+    color: var(--starbucks-green);
+    margin-right: 20px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.list-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.list-content strong {
+    color: var(--house-green);
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* --- 2. BẢNG MA TRẬN CHIẾN LƯỢC (PREMIUM DARK THEME) --- */
+
+.strategy-matrix-section {
+    padding: 60px 8%;
+    background-color: var(--starbucks-white); /* Nền ngoài sáng để tôn khối tối bên trong */
+}
+
+/* Khối bao quanh bảng: Xanh đậm, bo góc tròn trịa */
+.matrix-dark-wrapper {
+    max-width: 1050px;
+    margin: 0 auto;
+    background-color: var(--house-green); /* Nền xanh đậm Starbucks */
+    border-radius: 24px;
+    padding: 40px 50px;
+    box-shadow: 0 25px 50px rgba(0, 98, 65, 0.2); /* Bóng đổ màu xanh quyến rũ */
+}
+
+.matrix-dark-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Tiêu đề cột: Màu Xanh Mint sáng, viết hoa */
+.matrix-dark-table th {
+    color: var(--accent-green); 
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 20px 20px 20px;
+    border-bottom: 2px solid rgba(212, 233, 226, 0.2); /* Viền mờ */
+}
+
+/* Các hàng dữ liệu: Chữ trắng ngà, viền đứt khúc */
+.matrix-dark-table td {
+    padding: 30px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9); /* Trắng ngà chống mỏi mắt */
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15); /* Viền đứt nét tinh tế */
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+
+.matrix-dark-table tr:last-child td {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+/* Hiệu ứng di chuột: Hàng sáng lên nhẹ */
+.matrix-dark-table tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.04); 
+}
+
+/* Cột 1: Nguyên nhân (Chữ trắng tinh, in đậm) */
+.matrix-root-col {
+    width: 25%;
+    font-weight: 700;
+    color: #ffffff; 
+    font-size: 16px;
+}
+
+/* Cột 3: Công cụ (Chứa thẻ Tag) */
+.matrix-tool-col {
+    width: 30%;
+}
+
+/* Thiết kế "Thẻ Tag" (Pill Badge) cho Công cụ */
+.tool-tag {
+    display: inline-block;
+    background-color: rgba(212, 233, 226, 0.15); /* Nền xanh mint trong suốt */
+    color: var(--light-green); /* Chữ xanh mint sáng */
+    padding: 10px 18px;
+    border-radius: 30px; /* Hình viên thuốc */
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(212, 233, 226, 0.3); /* Viền mỏng nổi bật */
+    transition: all 0.3s ease;
+}
+
+/* Icon bên trong thẻ Tag */
+.tool-tag i {
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.tool-tag:hover {
+    background-color: rgba(212, 233, 226, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive cho Mobile */
+@media (max-width: 992px) {
+    .matrix-dark-wrapper {
+        padding: 25px;
+        border-radius: 16px;
+        overflow-x: auto; /* Cho phép cuộn ngang bảng trên điện thoại */
+    }
+    .matrix-dark-table {
+        min-width: 700px;
+    }
+}
+
+/* --- 3. Section Trích dẫn CEO --- */
+.ceo-quote-section {
+    padding: 80px 8%;
+    background-color: var(--starbucks-white);
+    display: flex;
+    justify-content: center;
+}
+
+.quote-container {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    padding: 40px;
+}
+
+.quote-icon {
+    font-size: 50px;
+    color: var(--light-green);
+    margin-bottom: 20px;
+}
+
+.ceo-quote {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--house-green);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--accent-green);
+}
+
+.author-info strong {
+    font-size: 18px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.author-info span {
+    font-size: 14px;
+    color: var(--text-grey);
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .styled-summary-list li {
+        flex-direction: column;
+    }
+    .list-icon { margin-bottom: 15px; }
+    
+    .ceo-quote { font-size: 22px; }
+    
+    /* Bảng ma trận cuộn ngang trên mobile */
+    .matrix-table-wrapper {
+        overflow-x: auto;
+    }
+    .matrix-table { min-width: 700px; }
+}
+
+/* ==========================================================================
+   KẾT LUẬN & BÀI HỌC (CUỐI PHẦN 3)
+   ========================================================================== */
+
+.lesson-conclusion-section {
+    padding: 80px 8%;
+    background-color: var(--starbucks-white);
+}
+
+.conclusion-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Thẻ Bài học kinh nghiệm */
+.lesson-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0, 98, 65, 0.08); /* Bóng đổ màu xanh nhẹ */
+    border-top: 6px solid var(--starbucks-green);
+    margin-bottom: 50px;
+}
+
+.lesson-header {
+    text-align: center;
+    color: var(--text-grey);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.lesson-header i {
+    color: var(--accent-gold); /* Điểm nhấn màu vàng vương miện */
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.lesson-main-text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--house-green);
+    margin-bottom: 40px;
+}
+
+/* Chia cột Số liệu & Bài học */
+.lesson-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 40px;
+}
+
+.split-item {
+    text-align: left;
+}
+
+.split-icon {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(212, 233, 226, 0.4); /* Xanh mint nhạt */
+    color: var(--starbucks-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.split-item h4 {
+    font-size: 18px;
+    color: var(--text-black);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.split-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-grey);
+}
+
+.split-item strong {
+    color: var(--starbucks-green);
+}
+
+/* Khối Trích dẫn & Lời kết */
+.final-message-box {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.schultz-quote {
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--house-green);
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 0 40px;
+}
+
+.schultz-quote::before, .schultz-quote::after {
+    content: '"';
+    font-size: 60px;
+    color: var(--light-green);
+    position: absolute;
+    top: -20px;
+    opacity: 0.5;
+}
+
+.schultz-quote::before { left: -10px; }
+.schultz-quote::after { right: -10px; bottom: -40px; top: auto; }
+
+.quote-author {
+    display: block;
+    font-size: 14px;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--starbucks-green);
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.closing-words {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-grey);
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.closing-words strong {
+    color: var(--text-black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lesson-split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .lesson-card {
+        padding: 30px 20px;
+    }
+    .schultz-quote {
+        font-size: 20px;
+        padding: 0;
+    }
+    .schultz-quote::before, .schultz-quote::after {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+.section-desc{
+    text-align: center; /* Ép chữ căn giữa */
+    margin: 10px auto 40px auto; /* Căn giữa toàn bộ khối, đẩy cách tiêu đề 10px và cách bảng 40px */
+    color: var(--text-grey);
+    font-size: 16px;
+    max-width: 800px; /* Giới hạn chiều rộng để chữ không bị tràn dài ra hai bên màn hình */
+}

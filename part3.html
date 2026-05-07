@@ -42,13 +42,13 @@
                     <li class="dropdown">
                         <a href="part3.html">Phân tích số liệu <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="part3.html">Phân tích tác động</a></li>
-                            <li><a href="part3.html">Mô hình cây vấn đề</a></li>
-                            <li><a href="part3.html">Mô hình giải pháp</a></li>
+                            <li><a href="#phan1">Phân tích tác động</a></li>
+                            <li><a href="#phan2">Mô hình cây vấn đề</a></li>
+                            <li><a href="#phan3">Mô hình giải pháp</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="part4.html">Sáng kiến hoàn thiện</a></li>
+                    <li><a href="part4.html">Tổng kết</a></li>
 
                     <li><a href="part5.html">Giả lập vận hành</a></li>
                     
@@ -69,122 +69,183 @@
         </div>
     </section>
 
-    <main class="main-full-width">
-        <section class="metrics-section">
-            <h2 class="center-title">Đánh giá tính bền vững qua các chỉ số (2021 - 2023)</h2>
-            <p class="section-desc">Sự tăng trưởng ấn tượng đi kèm với áp lực quản trị ngày càng lớn.</p>
-            
-            <div class="table-wrapper">
-                <table class="rationale-table">
-                    <thead>
-                        <tr>
-                            <th>Chỉ tiêu</th>
-                            <th>Năm 2021 (Đại dịch)</th>
-                            <th>Năm 2023 (Phục hồi)</th>
-                            <th>Xu hướng quản trị</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-feature">Tỷ lệ giữ chân</td>
-                            <td>58% (Hỗ trợ Covid)</td>
-                            <td>70% (Cao nhất ngành)</td>
-                            <td>Cải thiện nhưng chi phí giữ chân đắt đỏ.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Mức độ hài lòng</td>
-                            <td>82%</td>
-                            <td>88%</td>
-                            <td>Áp lực duy trì tiêu chuẩn kết nối cực cao.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Đầu tư đào tạo</td>
-                            <td>24 giờ/nhân viên/năm</td>
-                            <td>40 giờ/nhân viên/năm</td>
-                            <td>Tăng năng lực nhưng gây áp lực tâm lý.</td>
-                        </tr>
-                    </tbody>
-                </table>
+<main class="main-full-width">
+    <section class="metrics-section" id="phan1">
+    <h2 class="center-title">1. Đánh giá tính bền vững qua các chỉ số (2021 - 2023)</h2>
+    <p class="section-desc">Sự tăng trưởng ấn tượng đi kèm với áp lực quản trị ngày càng lớn lên hệ thống nhân sự.</p>
+    
+    <div class="modern-table-container">
+        <table class="metrics-table">
+            <thead>
+                <tr>
+                    <th>Chỉ tiêu quản trị</th>
+                    <th class="year-col">Năm 2021 (Đại dịch)</th>
+                    <th class="year-col">Năm 2023 (Phục hồi)</th>
+                    <th>Xu hướng & Áp lực ngầm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="metric-name">
+                        <i class="fa-solid fa-users-viewfinder"></i> Tỷ lệ giữ chân nhân tài
+                    </td>
+                    <td>58% <br><small class="text-muted">(Dựa vào hỗ trợ Covid)</small></td>
+                    <td class="good-stat">70% <br><small>(Cao nhất ngành F&B)</small></td>
+                    <td class="trend-warning">Cải thiện nhưng chi phí để giữ chân (Cổ phiếu, Học phí) ngày càng đắt đỏ.</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">
+                        <i class="fa-solid fa-face-smile-beam"></i> Mức độ hài lòng (Internal)
+                    </td>
+                    <td>82%</td>
+                    <td class="good-stat">88%</td>
+                    <td class="trend-warning">Tạo áp lực khổng lồ để duy trì tiêu chuẩn "kết nối khách hàng" liên tục.</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">
+                        <i class="fa-solid fa-graduation-cap"></i> Đầu tư đào tạo
+                    </td>
+                    <td>24 giờ / nhân viên</td>
+                    <td class="good-stat">40 giờ / nhân viên</td>
+                    <td class="trend-warning">Nâng cao năng lực nhưng dễ gây "kiệt sức" vì nhồi nhét tiêu chuẩn dịch vụ.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        <section class="problem-tree-section" id="phan2">
+            <h2 class="center-title">2. Phân tích Nhược điểm (Mô hình Cây Vấn Đề)</h2>
+            <p class="section-intro">Bóc tách các áp lực ngầm phía sau sự hào nhoáng của hệ thống nhân sự Starbucks.</p>
+
+            <div class="tree-visual-container">
+                
+                <div class="tree-layer layer-leaves">
+                    <div class="layer-title"><i class="fa-solid fa-leaf"></i> Cành & Lá: Hậu quả</div>
+                    <div class="card-grid-3">
+                        <div class="tree-card">
+                            <h4>Kiệt sức cảm xúc</h4>
+                            <p>Để nâng mức hài lòng từ 82% lên 88%, nhân viên phải "diễn" sự niềm nở tiêu chuẩn liên tục, dẫn đến sự mệt mỏi và thiếu chân thành.</p>
+                        </div>
+                        <div class="tree-card">
+                            <h4>Rủi ro cam kết dài hạn</h4>
+                            <p>Việc duy trì mức hài lòng 88% là gánh nặng chi phí lớn nếu doanh số không tăng đủ để bù đắp các đặc quyền như cổ phiếu thưởng.</p>
+                        </div>
+                        <div class="tree-card">
+                            <h4>Thiếu nhất quán dịch vụ</h4>
+                            <p>Lạm dụng quyền tự quyết để bảo vệ điểm hài lòng có thể dẫn đến việc thực thi tiêu chuẩn không đồng nhất và lãng phí nguyên liệu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tree-layer layer-trunk">
+                    <div class="trunk-card">
+                        <div class="layer-title" style="color: white;"><i class="fa-solid fa-tree"></i> Thân cây: Vấn đề trung tâm</div>
+                        <h3>"Sự thiếu bền vững trong hiệu quả tạo động lực và áp lực chi phí vận hành nhân sự ngày càng lớn."</h3>
+                        <div class="trunk-context">
+                            <strong>Bối cảnh tài chính:</strong> Starbucks duy trì mức chi phí nhân sự 18-20% doanh thu (cao hơn mức 12-15% trung bình ngành F&B), gây áp lực cực lớn lên lợi nhuận biên khi thị trường biến động.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tree-layer layer-roots">
+                    <div class="layer-title"><i class="fa-solid fa-seedling"></i> Rễ cây: Nguyên nhân gốc rễ</div>
+                    <div class="card-grid-3">
+                        <div class="tree-card root-card">
+                            <h4>Áp lực đào tạo khắt khe</h4>
+                            <p>Số giờ đào tạo tăng từ 24h (2021) lên 40h (2023). Dù giúp nâng cao trình độ, việc "nhồi nhét" tiêu chuẩn gây áp lực tâm lý và tốn kém thời gian.</p>
+                        </div>
+                        <div class="tree-card root-card">
+                            <h4>Lệ thuộc gói hỗ trợ</h4>
+                            <p>Tỷ lệ giữ chân 58% năm 2021 nhờ gói hỗ trợ Covid. Khi kết thúc, doanh nghiệp phải liên tục chi trả thêm để duy trì mức 70% năm 2023.</p>
+                        </div>
+                        <div class="tree-card root-card">
+                            <h4>Lệch pha trong nhu cầu</h4>
+                            <p>Các chương trình dài hạn như hỗ trợ học phí ASU không giải quyết được nhu cầu tài chính tức thời của nhóm nhân viên thời vụ.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section class="problem-tree-section">
-            <div class="tree-container">
-                <div class="tree-node leaves">
-                    <h3>Cành & Lá: Hậu quả</h3>
-                    <p>Kiệt sức cảm xúc (Burnout), Rủi ro cam kết dài hạn, Thiếu nhất quán dịch vụ.</p>
-                </div>
-                <div class="tree-node trunk">
-                    <h3>Vấn đề trung tâm</h3>
-                    <p>Thiếu bền vững trong tạo động lực và áp lực chi phí nhân sự lớn (18-20% doanh thu).</p>
-                </div>
-                <div class="tree-node roots">
-                    <h3>Rễ cây: Nguyên nhân</h3>
-                    <p>Áp lực đào tạo khắt khe, Lệ thuộc gói hỗ trợ, Lệch pha nhu cầu nhân viên thời vụ.</p>
-                </div>
-            </div>
-        </section>
+    <section class="solutions-section" id="phan3">
+        <h2 class="center-title">3. Sáng kiến hoàn thiện công cụ tạo động lực</h2>
+        <p class="section-desc">Chuyển đổi từ quản trị tiêu chuẩn cứng nhắc sang cá nhân hóa trải nghiệm nhân viên.</p>
 
-        <section class="initiatives-section">
-            <h2 class="center-title">Sáng kiến hoàn thiện công cụ tạo động lực</h2>
-            <div class="card-grid">
-                <div class="info-card">
-                    <div class="card-body">
-                        <div class="card-tag">Sáng kiến 1</div>
-                        <h3>Cá nhân hóa phúc lợi</h3>
-                        <p>Hệ thống "Điểm phúc lợi" cho phép nhân viên tự chọn quy đổi: Tiền mặt/Voucher (Ngắn hạn) hoặc Cổ phiếu/ASU (Dài hạn).</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="card-body">
-                        <div class="card-tag">Sáng kiến 2</div>
-                        <h3>Trò chơi hóa (Gamification)</h3>
-                        <p>Chuyển 40 giờ đào tạo thành thử thách trên App Partner Hub với huy hiệu và bảng xếp hạng để tăng niềm vui.</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="card-body">
-                        <div class="card-tag">Sáng kiến 3</div>
-                        <h3>Lịch làm việc hạnh phúc</h3>
-                        <p>Sử dụng AI dự báo lưu lượng khách và thiết lập "Giờ nghỉ xả hơi" (Wellness Break) để tái tạo năng lượng.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="solution-table-wrapper">
+            <table class="solution-table">
+                <thead>
+                    <tr>
+                        <th class="col-initiative">Hạng mục Sáng kiến</th>
+                        <th class="col-solution">Chi tiết Giải pháp đề xuất</th>
+                        <th class="col-goal">Mục tiêu chiến lược</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-initiative">
+                            <span class="initiative-badge">Sáng kiến 1</span>
+                            <h4>Cá nhân hóa gói phúc lợi</h4>
+                        </td>
+                        <td class="col-solution">
+                            <p>Thay vì áp dụng phúc lợi cứng nhắc, triển khai hệ thống <strong>"Điểm phúc lợi"</strong>. Cấp quỹ điểm hàng năm để nhân viên tự chọn quy đổi:</p>
+                            <ul>
+                                <li><strong>Lựa chọn A (Ngắn hạn):</strong> Quy đổi thành tiền mặt, voucher mua sắm hoặc chi phí đi lại <em>(Phù hợp nhân viên thời vụ, sinh viên)</em>.</li>
+                                <li><strong>Lựa chọn B (Dài hạn):</strong> Cổ phiếu Bean Stock bổ sung hoặc đóng góp quỹ học phí ASU <em>(Phù hợp nhân viên định hướng gắn bó lâu)</em>.</li>
+                            </ul>
+                        </td>
+                        <td class="col-goal">Tối ưu hóa chi phí nhân sự và tăng mức độ hài lòng bằng cách đáp ứng đúng nhu cầu thực tế của từng cá nhân.</td>
+                    </tr>
 
-        <section class="strategy-summary-section">
-            <div class="skinner-table-block">
-                <h3 class="table-title">Bảng giải pháp chiến lược</h3>
-                <div class="table-wrapper">
-                    <table class="skinner-table">
-                        <thead>
-                            <tr>
-                                <th>Nguyên nhân (Rễ)</th>
-                                <th>Giải pháp cụ thể</th>
-                                <th>Công cụ áp dụng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="type-col">Giao tiếp một chiều</td>
-                                <td>Hệ thống phản hồi 360 độ qua Partner Hub.</td>
-                                <td>Tâm lý - Giáo dục </td>
-                            </tr>
-                            <tr>
-                                <td class="type-col">Lương cao vẫn nghỉ</td>
-                                <td>Bean Stock & Đào tạo chuyên sâu dài hạn.</td>
-                                <td>Kinh tế gián tiếp </td>
-                            </tr>
-                            <tr>
-                                <td class="type-col">Công việc nhàm chán</td>
-                                <td>Luân chuyển vị trí quầy bar và phục vụ.</td>
-                                <td>Thuyết Herzberg </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+                    <tr>
+                        <td class="col-initiative">
+                            <span class="initiative-badge">Sáng kiến 2</span>
+                            <h4>Trò chơi hóa (Gamification) trong Đào tạo</h4>
+                        </td>
+                        <td class="col-solution">
+                            <p>Chuyển đổi 40 giờ đào tạo khô khan thành các thử thách trên ứng dụng Partner Hub:</p>
+                            <ul>
+                                <li>Thiết lập các <strong>"Nhiệm vụ tuần"</strong> (VD: Thành thạo 5 công thức đá xay mới) để nhận huy hiệu số và điểm thưởng.</li>
+                                <li>Xây dựng <strong>bảng xếp hạng nội bộ</strong> cửa hàng để vinh danh những "ngôi sao kết nối khách hàng" của tuần.</li>
+                            </ul>
+                        </td>
+                        <td class="col-goal">Giảm áp lực tâm lý từ các tiêu chuẩn khắt khe, tạo niềm vui trong công việc, phù hợp với tính cách chinh phục của Gen Z.</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-initiative">
+                            <span class="initiative-badge">Sáng kiến 3</span>
+                            <h4>Mô hình "Lịch làm việc hạnh phúc"</h4>
+                        </td>
+                        <td class="col-solution">
+                            <ul>
+                                <li>Sử dụng AI dự báo lưu lượng khách, cho phép nhân viên tự đăng ký ca linh hoạt trước 2 tuần. Ưu tiên nhân viên hiệu suất cao.</li>
+                                <li>Thiết lập <strong>"Giờ nghỉ xả hơi" (Wellness Break)</strong> 15 phút giữa ca (ngoài giờ nghỉ chính) để nhân viên tái tạo năng lượng cảm xúc.</li>
+                            </ul>
+                        </td>
+                        <td class="col-goal">Giải quyết dứt điểm tình trạng Kiệt sức cảm xúc (Burnout) và giúp nhân viên cân bằng giữa học tập - làm việc.</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-initiative">
+                            <span class="initiative-badge">Sáng kiến 4</span>
+                            <h4>Hệ thống phản hồi 360 độ</h4>
+                        </td>
+                        <td class="col-solution">
+                            <p>Mở kênh <strong>"Tiếng nói đối tác"</strong> trên ứng dụng nội bộ.</p>
+                            <p style="margin-top: 8px;">Nơi Barista có thể góp ý trực tiếp về các quy trình bất hợp lý hoặc đánh giá phong cách quản lý của Trưởng ca một cách ẩn danh.</p>
+                        </td>
+                        <td class="col-goal">Chuyển đổi từ giao tiếp một chiều sang đa chiều, xóa khoảng cách cấp bậc và phát hiện sớm mâu thuẫn nội bộ.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
     </main>
 
 

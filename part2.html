@@ -6,7 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="part2.css">
     <link rel="stylesheet" href="starbucks.css">
-
+    <link rel="stylesheet" href="popup.css">
+    <script src="script.js">Script</script>
     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg">
 </head>
 <body>
@@ -45,7 +46,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="part4.html">Sáng kiến hoàn thiện</a></li>
+                    <li><a href="part4.html">Tổng kết</a></li>
 
                     <li><a href="part5.html">Giả lập vận hành</a></li>
                     
@@ -73,8 +74,8 @@
                 </div>
                 <div class="card-body">
                     <h3>2.1. Công cụ Kinh tế: Mô hình "Quyền sở hữu"</h3>
-                    <p>Starbucks tặng cổ phiếu Bean Stock cho cả nhân viên bán thời gian [cite: 1], biến họ thành "người làm chủ" để bảo vệ thương hiệu[cite: 2]. Đồng thời, chi trả 100% học phí đại học ASU và cung cấp bảo hiểm toàn diện[cite: 3, 4].</p>
-                    <a href="#" class="btn-read-more">Read More</a>
+                    <p>Starbucks tặng cổ phiếu Bean Stock cho cả nhân viên bán thời gian, biến họ thành "người làm chủ" để bảo vệ thương hiệu. Đồng thời, chi trả 100% học phí đại học ASU và cung cấp bảo hiểm toàn diện.</p>
+                    <a href="javascript:void(0)" class="btn-read-more" onclick="openModal('card1')">Read More</a>
                 </div>
             </div>
 
@@ -84,8 +85,8 @@
                 </div>
                 <div class="card-body">
                     <h3>2.2. Công cụ Tâm lý - Xã hội: Văn hóa "Đối tác"</h3>
-                    <p>Xóa bỏ cấp bậc bằng danh xưng "Partner"[cite: 5]. Quản lý làm việc trực tiếp cùng nhân viên[cite: 6]. Các dự án như C.A.F.E Practices giúp nhân viên tự hào, tăng chỉ số gắn kết và lòng trung thành[cite: 7, 8, 9].</p>
-                    <a href="#" class="btn-read-more">Read More</a>
+                    <p>Xóa bỏ cấp bậc bằng danh xưng "Partner". Quản lý làm việc trực tiếp cùng nhân viên. Các dự án như C.A.F.E Practices giúp nhân viên tự hào, tăng chỉ số gắn kết và lòng trung thành.</p>
+                    <a href="javascript:void(0)" class="btn-read-more" onclick="openModal('card2')">Read More</a>
                 </div>
             </div>
 
@@ -95,8 +96,8 @@
                 </div>
                 <div class="card-body">
                     <h3>2.3. Công cụ Nội dung công việc: Quyền tự chủ</h3>
-                    <p>Barista được trao quyền sáng tạo và tương tác cá nhân không kịch bản[cite: 10]. Lộ trình thăng tiến rõ ràng với hơn 70% quản lý xuất thân từ vị trí pha chế, tạo niềm tin về tương lai phát triển[cite: 11, 12].</p>
-                    <a href="#" class="btn-read-more">Read More</a>
+                    <p>Barista được trao quyền sáng tạo và tương tác cá nhân không kịch bản. Lộ trình thăng tiến rõ ràng với hơn 70% quản lý xuất thân từ vị trí pha chế, tạo niềm tin về tương lai phát triển.</p>
+                    <a href="javascript:void(0)" class="btn-read-more" onclick="openModal('card3')">Read More</a>
                 </div>
             </div>
         </div>
@@ -145,20 +146,20 @@
         </div>
 
         <div class="theory-card">
-            <div class="card-tag ">Học thuyết 5</div>
+            <div class="card-tag ">Các chỉ số</div>
             <h3>Hiệu suất & Tài chính</h3>
             <div class="card-inner-split">
                 <div class="theory-sub-box">
-                    <span class="label-mini">Doanh thu</span>
-                    <p>abc.</p>
+                    <span class="label-mini">Doanh thu mục tiêu</span>
+                    <p>Khoảng 30.000.000 VNĐ/ngày cho một cửa hàng quy mô chuẩn.</p>
                 </div>
                 <div class="theory-sub-box">
-                    <span class="label-mini">Nhân sự</span>
-                    <p>abc.</p>
+                    <span class="label-mini">Chi phí nhân sự</span>
+                    <p>Duy trì ở mức 18-20% doanh thu (cao hơn mức 12-15% của các đối thủ nội địa).</p>
                 </div>
                                 <div class="theory-sub-box">
-                    <span class="label-mini">Triết lý</span>
-                    <p>abc.</p>
+                    <span class="label-mini">Triết lý vận hành</span>
+                    <p> Starbucks coi chi phí lương là khoản "Đầu tư vào trải nghiệm". Khi nhân viên (Đối tác) được chăm sóc tốt, họ sẽ tự khắc mang lại sự hài lòng tối đa cho khách hàng, từ đó duy trì lợi nhuận bền vững.</p>
                 </div>
             </div>
         </div>
@@ -181,17 +182,17 @@
                 <tr>
                     <td class="type-col">Tăng cường tích cực</td>
                     <td>Thưởng nóng hoặc tặng <strong>"Green Apron Card"</strong> khi nhân viên có hành vi kết nối xuất sắc như nhớ tên khách, hỏi thăm khách.</td>
-                    <td>Duy trì và nhân rộng các hành vi dịch vụ tốt giúp tăng điểm gắn kết khách hàng[cite: 1, 26].</td>
+                    <td>Duy trì và nhân rộng các hành vi dịch vụ tốt giúp tăng điểm gắn kết khách hàng.</td>
                 </tr>
                 <tr class="highlight-row">
                     <td class="type-col">Tránh tiêu cực</td>
                     <td>Đào tạo kỹ về an toàn thực phẩm ngay từ đầu để nhân viên làm đúng, tránh việc bị quản lý nhắc nhở hoặc kiểm tra đột xuất.</td>
-                    <td>Hình thành thói quen chuẩn mực tự giác để không rơi vào tình huống bị khiển trách[cite: 1, 28].</td>
+                    <td>Hình thành thói quen chuẩn mực tự giác để không rơi vào tình huống bị khiển trách.</td>
                 </tr>
                 <tr>
                     <td class="type-col">Hình phạt</td>
-                    <td>Cảnh cáo, đình chỉ ca làm hoặc chấm dứt hợp đồng đối với các hành vi vi phạm đạo đức, thái độ thô lỗ với khách[cite: 1, 29].</td>
-                    <td>Chấm dứt ngay các hành vi gây hại nghiêm trọng đến uy tín thương hiệu và trải nghiệm khách[cite: 1, 30].</td>
+                    <td>Cảnh cáo, đình chỉ ca làm hoặc chấm dứt hợp đồng đối với các hành vi vi phạm đạo đức, thái độ thô lỗ với khách.</td>
+                    <td>Chấm dứt ngay các hành vi gây hại nghiêm trọng đến uy tín thương hiệu và trải nghiệm khách hàng.</td>
                 </tr>
             </tbody>
         </table>
@@ -305,5 +306,23 @@
         </div>
     </footer>
 
+
+    <div id="read-more-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modal-img" src="" alt="Detail Image">
+            </div>
+            
+            <div class="modal-text">
+                <h2 id="modal-title">Tiêu đề</h2>
+                <div id="modal-desc">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

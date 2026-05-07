@@ -58,64 +58,391 @@
 
 
 
-
-
-/* --- Hero & Section Styles cho Phần 3 --- */
-
-
-.metrics-section, .problem-tree-section, .initiatives-section {
-    padding: 60px 8%;
-}
-
-.section-desc {
-    text-align: center;
+/* --- PHẦN 3: ĐÁNH GIÁ CHỈ SỐ & CÂY VẤN ĐỀ --- */
+/* Căn giữa dòng mô tả dưới tiêu đề */
+.section-desc{
+    text-align: center; /* Ép chữ căn giữa */
+    margin: 10px auto 40px auto; /* Căn giữa toàn bộ khối, đẩy cách tiêu đề 10px và cách bảng 40px */
     color: var(--text-grey);
-    margin-bottom: 40px;
-    font-style: italic;
+    font-size: 16px;
+    max-width: 800px; /* Giới hạn chiều rộng để chữ không bị tràn dài ra hai bên màn hình */
 }
 
-/* --- Visual Problem Tree --- */
-.tree-container {
+.section-intro {
+    text-align: center;
+    margin: 0 auto 40px auto;
+    color: var(--text-grey);
+    font-size: 16px;
+    max-width: 700px;
+}
+/* --- BẢNG CHỈ SỐ DASHBOARD (PHẦN 3) --- */
+
+.metrics-section {
+    padding: 60px 8%;
+    background-color: var(--starbucks-white);
+}
+
+.modern-table-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Header Bảng */
+.metrics-table th {
+    background-color: var(--house-green); /* Xanh đậm Starbucks */
+    color: #ffffff;
+    padding: 22px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metrics-table th:last-child {
+    border-right: none;
+}
+
+/* Nội dung Ô */
+.metrics-table td {
+    padding: 25px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.metrics-table tr:last-child td {
+    border-bottom: none;
+}
+
+.metrics-table tr:hover {
+    background-color: #fafafa;
+}
+
+/* Cột 1: Chỉ tiêu (Có icon) */
+.metric-name {
+    font-weight: 700;
+    color: var(--starbucks-green);
+    width: 25%;
+    font-size: 16px;
+}
+
+.metric-name i {
+    color: var(--accent-green);
+    margin-right: 10px;
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Cột 3: Số liệu 2023 (Tô nền xanh Mint nổi bật) */
+.good-stat {
+    background-color: rgba(212, 233, 226, 0.3); /* Xanh mint nhạt */
+    color: var(--primary-green);
+    font-weight: 800;
+    font-size: 18px;
+    border-left: 2px solid var(--accent-green);
+    border-right: 2px solid var(--accent-green);
+}
+
+.good-stat small {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-grey);
+    display: block;
+    margin-top: 5px;
+}
+
+.text-muted {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Cột 4: Xu hướng & Áp lực (Tông màu nâu trầm cảnh báo) */
+.trend-warning {
+    color: #8b5a2b; 
+    font-weight: 600;
+    width: 30%;
+    background-color: rgba(242, 210, 189, 0.1); /* Màu nền cam/đất cực nhạt */
+}
+
+/* Responsive cho Mobile */
+@media (max-width: 992px) {
+    .metrics-table, .metrics-table tbody, .metrics-table tr, .metrics-table td {
+        display: block;
+        width: 100%;
+    }
+    .metrics-table thead {
+        display: none; /* Ẩn header trên mobile */
+    }
+    .metrics-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+    }
+    .good-stat {
+        border-left: none;
+        border-right: none;
+        background-color: transparent;
+    }
+}
+/* Cấu trúc Cây Vấn Đề */
+.tree-visual-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background: #f1f8f5;
-    padding: 50px;
-    border-radius: 30px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tree-node {
-    padding: 25px;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 600px;
+.tree-layer {
+    padding: 30px;
+    border-radius: 24px;
+    position: relative;
+}
+
+.layer-title {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    color: var(--house-green);
 }
 
-.tree-node h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
-
-.leaves { background-color: #d4e9e2; color: #1e3932; border: 2px dashed #1e3932; }
-.trunk { background-color: #1e3932; color: #fff; transform: scale(1.1); }
-.roots { background-color: #f2d2bd; color: #333; border: 2px solid #eab5b5; }
-
-/* --- Tinh chỉnh Card cho Initiative --- */
-.initiatives-section .card-grid {
-    margin-top: 40px;
+.card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.initiatives-section .info-card {
-    border-top: 5px solid var(--starbucks-green);
-    transition: all 0.3s ease;
+.tree-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    border-top: 4px solid transparent;
+    transition: transform 0.3s ease;
 }
 
-.initiatives-section .info-card:hover {
-    background-color: var(--accent-green);
+.tree-card:hover {
+    transform: translateY(-5px);
 }
 
-/* Style cho bảng cuối trang */
-.strategy-summary-section {
-    padding: 80px 8%;
-    background-color: var(--starbucks-background);
+.tree-card h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-black);
+    min-height: 45px;
+}
+
+.tree-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-grey);
+}
+
+/* Tầng 1: Lá (Màu xanh mint) */
+.layer-leaves {
+    background-color: rgba(212, 233, 226, 0.4);
+}
+.layer-leaves .tree-card {
+    border-top-color: var(--accent-green);
+}
+
+/* Tầng 2: Thân cây (Màu xanh đậm Starbucks) */
+.trunk-card {
+    background-color: var(--house-green);
+    color: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 98, 65, 0.2);
+    position: relative;
+    z-index: 2; /* Nổi lên trên */
+    transform: scale(1.02); /* Phóng to nhẹ để nhấn mạnh trung tâm */
+}
+
+.trunk-card h3 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.trunk-context {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    border-left: 4px solid var(--accent-green);
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Tầng 3: Rễ cây (Tông màu cà phê/đất) */
+.layer-roots {
+    background-color: rgba(242, 210, 189, 0.3); /* Màu nền be nhạt */
+}
+.layer-roots .layer-title {
+    color: #8b5a2b; /* Màu nâu đất */
+}
+.root-card {
+    border-top-color: #8b5a2b; /* Vạch màu nâu */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .card-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .trunk-card {
+        padding: 30px 20px;
+        transform: scale(1);
+    }
+    .trunk-card h3 {
+        font-size: 20px;
+    }
+}
+
+
+/* --- BẢNG SÁNG KIẾN (Dạng Thẻ Nổi - Card Row Table) --- */
+
+.solutions-section {
+    padding: 60px 8%;
+    background-color: var(--starbucks-background); /* Nền xanh ngà tạo độ sâu */
+}
+
+.solution-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.solution-table {
+    width: 100%;
+    border-collapse: separate; /* Bắt buộc để tạo khoảng cách giữa các hàng */
+    border-spacing: 0 20px;    /* Khoảng cách giữa các hàng (20px) */
+    text-align: left;
+    min-width: 900px;
+}
+
+/* Header Bảng Sáng Kiến */
+.solution-table th {
+    padding: 0 25px 15px 25px;
+    color: var(--text-grey);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--accent-green);
+}
+
+/* Các Ô trong Hàng (Nền trắng) */
+.solution-table td {
+    background-color: #ffffff;
+    padding: 35px 25px;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-black);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03); /* Đổ bóng nhẹ cho hàng */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Bo góc cho thẻ hàng */
+.solution-table td:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left: 5px solid var(--starbucks-green); /* Vạch xanh định vị bên trái */
+}
+
+.solution-table td:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Hiệu ứng tương tác khi hover vào hàng */
+.solution-table tbody tr:hover td {
+    background-color: #fcfcfc;
+    transform: translateY(-3px); /* Hàng hơi nổi lên khi di chuột */
+}
+
+/* Căn chỉnh độ rộng cột */
+.col-initiative { width: 25%; }
+.col-solution { width: 50%; }
+.col-goal { width: 25%; }
+
+/* Trang trí Typography */
+.initiative-badge {
+    display: inline-block;
+    background-color: var(--house-green);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.col-initiative h4 {
+    font-size: 18px;
+    color: var(--starbucks-green);
+    line-height: 1.4;
+    font-weight: 800;
+}
+
+.col-solution ul {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.col-solution li {
+    margin-bottom: 10px;
+}
+
+/* Cột Mục tiêu có màu nền nổi bật để nhấn mạnh */
+.solution-table td.col-goal {
+    font-weight: 600;
+    color: var(--house-green);
+    background-color: rgba(212, 233, 226, 0.2); /* Xanh mint nhạt */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .solution-table th { display: none; }
+    .solution-table td {
+        display: block;
+        width: 100%;
+        border-radius: 0 !important;
+        box-shadow: none;
+        border-left: none !important;
+    }
+    .solution-table tbody tr {
+        display: block;
+        margin-bottom: 25px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+    }
 }
