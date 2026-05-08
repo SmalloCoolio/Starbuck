@@ -378,3 +378,57 @@ body {
         width: 140px;
     }
 }
+
+/* --- Tối ưu Navbar cho Mobile --- */
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px; /* Giảm chiều cao navbar */
+        padding: 0 20px;
+    }
+
+    .nav-left {
+        gap: 15px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Ẩn bớt các mục không quan trọng hoặc chuyển thành dạng cuộn ngang nếu cần */
+    .nav-links {
+        gap: 15px;
+        overflow-x: auto; /* Cho phép cuộn ngang menu trên mobile */
+        white-space: nowrap;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links > li {
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 11px; /* Chữ nhỏ lại một chút */
+    }
+
+    /* Ẩn icon mũi tên trên mobile để tiết kiệm diện tích */
+    .nav-links a i {
+        display: none;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+}
+
+/* --- Tối ưu Team Grid (Thành viên nhóm) --- */
+@media (max-width: 480px) {
+    .brand-grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Chia 2 cột đều nhau */
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .team-member-item {
+        width: 100%; /* Chiếm hết cột */
+    }
+}

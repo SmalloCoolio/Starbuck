@@ -201,3 +201,48 @@ img {
     border-radius: 24px; /* Bo góc khung ngoài */
     overflow: hidden; /* QUAN TRỌNG: Cắt bỏ phần ảnh vuông thừa ra ở các góc */
 }
+
+/* --- Tối ưu Modal cho Mobile --- */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 92%; /* Tăng độ rộng để tận dụng không gian */
+        height: 80vh; /* Tăng chiều cao để không bị khuất chữ */
+        border-radius: 20px;
+    }
+
+    .modal-body {
+        flex-direction: column; /* Ảnh nằm trên, chữ nằm dưới */
+    }
+
+    .modal-image {
+        height: 180px; /* Cố định chiều cao ảnh để nhường chỗ cho chữ */
+        min-height: 180px;
+    }
+
+    .modal-text {
+        padding: 25px 20px;
+    }
+
+    .modal-text h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .modal-text p, .modal-text li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        background: rgba(255, 255, 255, 0.8); /* Thêm nền nhẹ để dễ thấy nút đóng trên ảnh */
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+}

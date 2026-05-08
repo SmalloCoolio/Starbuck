@@ -172,6 +172,9 @@ let isDayRunning = false;
 
 function startDay() {
     if (isDayRunning || state.isDayActive) return; 
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     isDayRunning = true;
     state.isDayActive = true;
     

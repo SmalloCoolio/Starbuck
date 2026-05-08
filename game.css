@@ -732,3 +732,82 @@ header {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+/* =========================================================
+   TỐI ƯU HÓA MOBILE (Siêu mượt cho điện thoại)
+========================================================= */
+@media (max-width: 768px) {
+    /* 1. Chuyển bố cục sang dạng dọc */
+    .main-container {
+        flex-direction: column; 
+        height: auto;
+        overflow-y: auto;
+    }
+
+    /* 2. Shop Area nằm trên, chiếm 60% màn hình */
+    .shop-area {
+        height: 60vh;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    /* 3. Sidebar chuyển thành Dashboard ở dưới */
+    .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 2px solid var(--border-color);
+        padding: 15px;
+        overflow-y: visible; /* Để cuộn cả trang */
+        background: var(--bg-color);
+    }
+
+    /* 4. Thu gọn Header */
+    header {
+        padding: 10px 15px;
+        height: 70px;
+    }
+    .logo img { height: 35px; }
+    .user-profile span { display: none; } /* Ẩn tên, chỉ để Badge Level cho gọn */
+
+    /* 5. Tối ưu Action Bar (Nút Mở cửa & Thanh tiến trình) */
+    .action-bar {
+        margin: 10px;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .progress-bar-container { margin: 0 10px; }
+    #btn-start-day { 
+        padding: 10px 15px; 
+        font-size: 14px; 
+        white-space: nowrap; 
+    }
+
+    /* 6. Menu Đồ uống (Luxury Menu) */
+    .luxury-menu {
+        width: calc(100% - 20px);
+        left: 10px;
+        bottom: 10px;
+    }
+
+    /* 7. Nút bấm to hơn để dễ chạm bằng ngón tay */
+    .btn-buy, .price-controls button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* 8. Modal (Hóa đơn & Thăng cấp) */
+    .modal-content, .level-up-card {
+        width: 95%;
+        padding: 20px;
+        margin: 10px;
+    }
+    .hero-title { font-size: 45px; } /* Hạ size chữ thăng cấp */
+
+    /* 9. Dashboard Panels */
+    .premium-panel {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+}
