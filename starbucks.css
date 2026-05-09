@@ -14,7 +14,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Khóa việc rung lắc ngang của cả trang web */
+}
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--starbucks-background); /* Màu nền giống website Starbucks */
@@ -41,10 +44,27 @@ body {
     align-items: center;
 }
 
+.nav-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow-x: auto; /* Cho phép kéo ngang */
+        overflow-y: hidden; /* KHÓA KÉO DỌC */
+        
+        /* Ẩn thanh cuộn để trông chuyên nghiệp hơn */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .nav-container::-webkit-scrollbar {
+        display: none;
+    }
+
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
 .logo img {
@@ -55,11 +75,13 @@ body {
     list-style: none;
     display: flex;
     gap: 30px;
+    flex-wrap: nowrap; /* Không cho phép xuống dòng */
 }
 
 .nav-links > li {
     position: relative; /* Quan trọng để menu con căn theo mục cha */
-    padding: 35px 0;    /* Tạo vùng đệm để không bị mất hover */
+    padding: 3 0;    /* Tạo vùng đệm để không bị mất hover */
+    flex-shrink: 0;
 }
 
 .nav-links a {
@@ -384,6 +406,7 @@ body {
     .navbar {
         height: 70px; /* Giảm chiều cao navbar */
         padding: 0 20px;
+        overflow: hidden;
     }
 
     .nav-left {
@@ -430,5 +453,54 @@ body {
 
     .team-member-item {
         width: 100%; /* Chiếm hết cột */
+    }
+}
+/* --- TỐI ƯU NAVBAR: ĐẨY LÊN CAO NHẤT & KHÓA KÉO DỌC --- */
+@media (max-width: 768px) {
+    /* Khóa toàn bộ việc kéo xuống của thanh điều hướng */
+    .navbar {
+        height: 70px !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 99999 !important; /* Đẩy lên cao nhất để không bị cái gì đè */
+        overflow: visible !important; /* Quan trọng: Phải để visible để hiện dropdown */
+        background: var(--starbucks-white) !important;
+    }
+
+    .nav-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        overflow-x: auto !important; /* CHỈ CHO KÉO NGANG */
+        overflow-y: hidden !important; /* KHÓA KÉO XUỐNG */
+        white-space: nowrap; /* Ép menu nằm trên 1 hàng */
+        -webkit-overflow-scrolling: touch; /* Giúp vuốt mượt trên iPhone */
+        scrollbar-width: none; /* Ẩn thanh cuộn */
+    }
+
+    /* Ẩn thanh cuộn để giao diện sạch hơn */
+    .nav-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Đưa Dropbox (Dropdown Menu) lên tầng cao nhất */
+    .dropdown-menu {
+        position: absolute !important;
+        z-index: 100000 !important; /* Cao hơn cả Navbar */
+        top: 100% !important; /* Hiển thị ngay sát dưới chân chữ */
+        background: var(--starbucks-white) !important;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+    }
+
+    /* Ngăn chữ bị bóp dẹt khi kéo ngang */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 25px !important;
+        padding-right: 20px; /* Tạo khoảng trống cuối để không bị sát mép */
+    }
+
+    .nav-links li {
+        flex-shrink: 0 !important; /* Không cho phép co lại */
     }
 }

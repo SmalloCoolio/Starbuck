@@ -468,6 +468,14 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
 }
+.modern-table-container, 
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto !important; /* Đổi từ hidden sang auto để hiện thanh cuộn */
+    -webkit-overflow-scrolling: touch; /* Giúp vuốt cuộn mượt hơn trên iPhone */
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
 
 .skinner-table {
     width: 100%;
@@ -499,6 +507,13 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
+.skinner-table, 
+.rationale-table, 
+.metrics-table {
+    min-width: 700px; /* Khi màn hình nhỏ hơn 700px, bảng sẽ tự kích hoạt chế độ kéo ngang */
+    width: 100%;
+    border-collapse: collapse;
+}
 /* Cột Loại tăng cường: Chữ xanh lá */
 .type-col {
     font-weight: 700;
