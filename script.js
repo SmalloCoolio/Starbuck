@@ -20,7 +20,7 @@ const modalData = {
                 <p><strong>Xóa bỏ cấp bậc:</strong> Mọi nhân viên là "Đối tác" (Partner). Quản lý cùng pha chế và dọn dẹp tại quầy.</p>
                 <p><strong>Sứ mệnh kết nối:</strong></p>
                 <ul>
-                    <li>Dự án hỗ trợ nông dân bền vững (C.A.F.E Practices).</li>
+                    <li>Dự án hỗ trợ nông dân trồng cà phê bền vững (C.A.F.E Practices).</li>
                     <li>Nhân viên tự hào vì đóng góp vào sự phát triển toàn cầu.</li>
                     <li>Engagement Score đạt 88% - mức kỷ lục ngành F&B.</li>
                 </ul>
