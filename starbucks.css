@@ -34,41 +34,30 @@ body {
     border-bottom: 1px solid #e0e0e0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    /* LUÔN LUÔN để z-index cao nhất và overflow visible */
+    z-index: 99999 !important;
+    overflow: visible !important; 
 }
 
 .nav-container {
     width: 100%;
     display: flex;
-    justify-content: flex-start; /* Để các mục tràn từ trái sang */
     align-items: center;
+    overflow: visible !important; 
+    position: relative;
 }
 
-.nav-container {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        overflow-x: auto; /* Cho phép kéo ngang */
-        overflow-y: hidden; /* KHÓA KÉO DỌC */
-        
-        /* Ẩn thanh cuộn để trông chuyên nghiệp hơn */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
-    }
 
-    .nav-container::-webkit-scrollbar {
-        display: none;
-    }
 
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
+    gap: 40px;
+    width: 100%;
 }
-
 .logo img {
     height: 50px;
+    flex-shrink: 0;
 }
 
 .nav-links {
@@ -76,11 +65,13 @@ body {
     display: flex;
     gap: 30px;
     flex-wrap: nowrap; /* Không cho phép xuống dòng */
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links > li {
     position: relative; /* Quan trọng để menu con căn theo mục cha */
-    padding: 3 0;    /* Tạo vùng đệm để không bị mất hover */
+    padding: 10px 0;    /* Tạo vùng đệm để không bị mất hover */
     flex-shrink: 0;
 }
 
@@ -91,7 +82,7 @@ body {
     font-size: 13px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
 .nav-links a i {
@@ -106,35 +97,40 @@ body {
 /* --- Dropdown Menu --- */
 .dropdown-menu {
     position: absolute;
-    top: 90%; /* Hiển thị ngay dưới header */
+    top: 100%; /* Xuất hiện ngay dưới mục cha */
     left: 0;
-    min-width: 220px;
-    list-style: none;
-    padding: 10px 0;
+    min-width: 240px;
+    background: var(--starbucks-white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Đổ bóng sang trọng hơn */
+    padding: 15px 0;
+    list-style: none; /* Xóa dấu chấm menu con */
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
     transform: translateY(10px);
-    background-color: var(--starbucks-white);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100000;
 }
+.dropdown-menu li { width: 100%; }
 
 .dropdown-menu li a {
-    padding: 12px 20px;
+    padding: 12px 25px;
     display: block;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: 500;
+    text-transform: none; /* Menu con không cần in hoa hết để dễ đọc */
+    letter-spacing: 0.5px;
     font-size: 14px;
+    color: var(--text-black);
 }
 
 .dropdown-menu li a:hover {
-    background-color: #f4f4f4;
-    color: #006241;
+    background-color: var(--starbucks-background);
+    color: var(--starbucks-green);
 }
 
 /* Hover vào thẻ li */
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -401,46 +397,6 @@ body {
     }
 }
 
-/* --- Tối ưu Navbar cho Mobile --- */
-@media (max-width: 768px) {
-    .navbar {
-        height: 70px; /* Giảm chiều cao navbar */
-        padding: 0 20px;
-        overflow: hidden;
-    }
-
-    .nav-left {
-        gap: 15px;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    /* Ẩn bớt các mục không quan trọng hoặc chuyển thành dạng cuộn ngang nếu cần */
-    .nav-links {
-        gap: 15px;
-        overflow-x: auto; /* Cho phép cuộn ngang menu trên mobile */
-        white-space: nowrap;
-        padding-bottom: 5px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-links > li {
-        padding: 10px 0;
-    }
-
-    .nav-links a {
-        font-size: 11px; /* Chữ nhỏ lại một chút */
-    }
-
-    /* Ẩn icon mũi tên trên mobile để tiết kiệm diện tích */
-    .nav-links a i {
-        display: none;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-}
 
 /* --- Tối ưu Team Grid (Thành viên nhóm) --- */
 @media (max-width: 480px) {
@@ -453,54 +409,5 @@ body {
 
     .team-member-item {
         width: 100%; /* Chiếm hết cột */
-    }
-}
-/* --- TỐI ƯU NAVBAR: ĐẨY LÊN CAO NHẤT & KHÓA KÉO DỌC --- */
-@media (max-width: 768px) {
-    /* Khóa toàn bộ việc kéo xuống của thanh điều hướng */
-    .navbar {
-        height: 70px !important;
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 99999 !important; /* Đẩy lên cao nhất để không bị cái gì đè */
-        overflow: visible !important; /* Quan trọng: Phải để visible để hiện dropdown */
-        background: var(--starbucks-white) !important;
-    }
-
-    .nav-container {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        overflow-x: auto !important; /* CHỈ CHO KÉO NGANG */
-        overflow-y: hidden !important; /* KHÓA KÉO XUỐNG */
-        white-space: nowrap; /* Ép menu nằm trên 1 hàng */
-        -webkit-overflow-scrolling: touch; /* Giúp vuốt mượt trên iPhone */
-        scrollbar-width: none; /* Ẩn thanh cuộn */
-    }
-
-    /* Ẩn thanh cuộn để giao diện sạch hơn */
-    .nav-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Đưa Dropbox (Dropdown Menu) lên tầng cao nhất */
-    .dropdown-menu {
-        position: absolute !important;
-        z-index: 100000 !important; /* Cao hơn cả Navbar */
-        top: 100% !important; /* Hiển thị ngay sát dưới chân chữ */
-        background: var(--starbucks-white) !important;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
-    }
-
-    /* Ngăn chữ bị bóp dẹt khi kéo ngang */
-    .nav-links {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 25px !important;
-        padding-right: 20px; /* Tạo khoảng trống cuối để không bị sát mép */
-    }
-
-    .nav-links li {
-        flex-shrink: 0 !important; /* Không cho phép co lại */
     }
 }

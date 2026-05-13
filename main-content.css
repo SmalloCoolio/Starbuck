@@ -9,7 +9,7 @@
 }
 
 /* Tối ưu hóa Reset */
-.main-full-width { width: 100%; margin: 0; padding: 0; }
+.main-full-width { width: 100%; margin: 0; padding: 0; position: relative; }
 
 /* --- 2. CẤU TRÚC ZIG-ZAG BANNERS --- */
 .banner-row {
@@ -21,7 +21,6 @@
 
 .banner-row:nth-child(even) { flex-direction: row-reverse; }
 
-/* Gộp chung thuộc tính flex cho Image và Content */
 .banner-image, .banner-content { flex: 1; }
 
 .banner-image { height: 500px; overflow: hidden; }
@@ -46,7 +45,7 @@
 
 /* --- 3. COMPONENTS (Cards & Tables) --- */
 
-/* Gộp chung hiệu ứng Hover và Shadow cho Card & Table Wrapper */
+/* Gộp chung giao diện cho Card & Table Wrapper */
 .floating-summary-card, .table-wrapper {
     background-color: var(--starbucks-white);
     border-radius: 20px;
@@ -61,7 +60,7 @@
     transition: transform 0.3s ease;
 }
 
-/* Gộp chung Style tiêu đề phụ (Caps, Spacing) */
+/* Gộp chung Style tiêu đề phụ (In hoa, Khoảng cách chữ) */
 .card-header, .info-item strong, .rationale-table th {
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -133,49 +132,27 @@
     background-color: rgba(212, 233, 226, 0.2);
 }
 
-/* Gộp hiệu ứng hàng so le và hover */
 .rationale-table tr:nth-child(even) { background-color: var(--starbucks-background); }
 .rationale-table tr:hover { background-color: var(--accent-green); transition: 0.3s; }
 
-/* --- 5. THEME COLORS & UTILITIES --- */
-.house-green-bg { background-color: var(--house-green); color: var(--starbucks-white); }
-.peach-bg { background-color: #f2d2bd; }
-.accent-green-bg { background-color: var(--accent-green); }
-.dark-text, .center-title { color: var(--house-green); }
-.center-title { text-align: center; margin-bottom: 20px; }
-
-/* --- 6. RESPONSIVE --- */
-@media (max-width: 768px) {
-    .banner-row { flex-direction: column; height: auto; }
-    .banner-image { height: 300px; width: 100%; }
-    .banner-content { padding: 40px 5%; }
-}
-
-/* --- Hero Banner Style - Bold & Uppercase --- */
+/* --- 5. HERO BANNER (PARALLAX/STICKY STYLE) --- */
 .subpage-hero {
     width: 100%;
     height: 450px;
-    background-image: url('https://c0.wallpaperflare.com/preview/79/859/750/starbucks-coffee-building.jpg');
-    background-size: cover;
-    background-position: center;
+    background: url('https://c0.wallpaperflare.com/preview/79/859/750/starbucks-coffee-building.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     position: sticky;
-    top: 100px;
+    top: 0; /* Đã sửa: Để top 0 nếu không dùng navbar sticky 100px */
     z-index: 1;
-    
-    transition: opacity 0.1s linear; 
-    will-change: opacity;
+    transition: opacity 0.1s linear;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Tăng độ mờ nhẹ để chữ đậm nổi bật hơn */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,138 +161,41 @@
 .hero-text-container {
     text-align: center;
     color: var(--starbucks-white);
-    /* Áp dụng Bold cho toàn bộ text bên trong */
     font-weight: 800; 
-    text-transform: uppercase; /* Đảm bảo tất cả đều in hoa */
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
     display: block;
     font-size: 16px;
     letter-spacing: 4px;
-    margin-bottom: 40px; /* Tăng từ 15px lên 40px để tách xa chữ PHẦN 2 */
-    font-weight: 700;
-    color: var(--accent-green); /* Có thể dùng màu xanh mint để làm điểm nhấn */
+    margin-bottom: 40px;
+    color: var(--accent-green);
 }
 
 .hero-title {
     font-size: 90px;
     font-weight: 900;
-    margin: 0;
     line-height: 0.9;
-    letter-spacing: 2px;
-    /* Có thể thêm margin-bottom nếu muốn tách mô tả bên dưới ra thêm */
-    margin-bottom: 25px; 
+    margin: 0 0 25px;
 }
 
 .hero-description {
     font-size: 20px;
-    font-weight: 700;
     letter-spacing: 2px;
-    margin-top: 0; /* Đã dùng margin-bottom của title để điều chỉnh */
 }
 
+/* --- 6. NỘI DUNG CHÍNH (ĐÈ LÊN HERO) --- */
 main.main-full-width {
-    position: relative;
-    z-index: 10;      /* Cao hơn hero để đè lên */
-    
-    /* BẮT BUỘC: Phải có màu nền để che đi phần hero bên dưới */
+    z-index: 2;
     background-color: var(--starbucks-background); 
-    
-    /* Tùy chọn: Thêm đổ bóng ở mép trên để tạo chiều sâu khi đè lên ảnh */
     box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.1);
-    
-    /* Đảm bảo phần main bắt đầu ngay sau khi hero kết thúc về mặt bố cục */
-    margin-top: 0; 
     padding-top: 20px;
-    margin-bottom: 0 !important;
 }
 
-/* --- Tối ưu Hero Section --- */
-@media (max-width: 768px) {
-    .subpage-hero {
-        height: 300px; /* Giảm chiều cao hero */
-        top: 70px;     /* Khớp với chiều cao navbar mới */
-    }
-
-    .hero-title {
-        font-size: 50px; /* Giảm từ 90px xuống 50px */
-        margin-bottom: 15px;
-    }
-
-    .hero-subtitle {
-        font-size: 12px;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-    }
-
-    .hero-description {
-        font-size: 16px;
-        padding: 0 20px;
-    }
-}
-
-/* --- Tối ưu Card tóm tắt (Starbucks at a Glance) --- */
-@media (max-width: 768px) {
-    .floating-summary-card {
-        margin: -30px 15px 30px 15px; /* Đẩy lên trên hero một chút */
-        padding: 20px;
-        border-radius: 15px;
-    }
-
-    .card-body {
-        gap: 15px;
-    }
-
-    .info-item span {
-        font-size: 14px;
-        text-align: center;
-    }
-}
-
-/* --- Tối ưu Bảng (Rationale Table) --- */
-@media (max-width: 768px) {
-    .rationale-section {
-        padding: 40px 15px;
-    }
-
-    .table-wrapper {
-        margin-top: 20px;
-        /* Thêm chỉ dẫn cuộn cho người dùng */
-        position: relative;
-    }
-
-    .table-wrapper::after {
-        content: "Vuốt sang để xem thêm →";
-        display: block;
-        text-align: right;
-        font-size: 11px;
-        color: var(--starbucks-green);
-        margin-top: 10px;
-    }
-
-    .rationale-table td, .rationale-table th {
-        padding: 15px 12px;
-        font-size: 13px;
-    }
-    
-    .col-feature {
-        width: 30%; /* Tăng độ rộng cột tiêu đề trên mobile */
-    }
-}
-
-/* --- Tối ưu Banner Zig-zag --- */
-@media (max-width: 768px) {
-    .banner-image {
-        height: 250px; /* Giảm chiều cao ảnh */
-    }
-
-    .banner-content {
-        padding: 40px 20px;
-        text-align: center;
-    }
-
-    .text-box h1, .text-box h2 {
-        font-size: 24px;
-    }
-}
+/* --- 7. UTILITIES & THEME COLORS --- */
+.house-green-bg { background-color: var(--house-green); color: var(--starbucks-white); }
+.peach-bg { background-color: #f2d2bd; }
+.accent-green-bg { background-color: var(--accent-green); }
+.dark-text, .center-title { color: var(--house-green); }
+.center-title { text-align: center; margin-bottom: 20px; }
